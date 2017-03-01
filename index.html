@@ -11,7 +11,7 @@
 	
 		<h1>SplitTab</h1>
 	
-		<table border = "1">
+		<table border = "1" id = "myTable">
 			<thead>
 				<tr>
 					<th>Expense</th>
@@ -68,5 +68,19 @@
 				</tr>
 				
 		</table>
+
+		<input id = "input_participant" type="text" value = "Participant">
+		<button id = "add_btn" type = "button">Add Participant</button>
+
+		<script>
+			$("#add_btn").click(function(){
+				var participant = $("#input_participant").val();
+				$("#myTable").append(
+					'<tr><td>'+ participant + '</td><td>11</td></tr>'
+				);
+			})
+
+
+		</script>
 	</body>
 </html>
