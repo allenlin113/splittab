@@ -69,22 +69,24 @@
 			</tbody>
 				
 		</table>
-
-
-
-		<input id = "input_participant" type="text" value = "Participant">
+		<br/><br/>
+		<input id = "input_expense" type="text" value = "Expense"><br/>
+		<input id = "input_cost" type = "text" value = "Cost"><br/>
 		<button id = "add_btn" type = "button">Add Participant</button>
 
-		<br>
+		<br/><br/>
+		
 		Tax % <input type="text" name="tax" size="10px" value="8.875"/>
 
 		Tip % <input type="text" name="tax" size="10px" value="15"/>
 
 		<script>
 			$("#add_btn").click(function(){
-				var participant = $("#input_participant").val();
+				var expense = $("#input_expense").val();
+				var cost = $("#input_cost").val();
 				$("#myTable").append(
-					'<tr><td>'+ participant + '</td><td>11</td></tr>'
+					'<tr><td>'+ expense + '</td><td>' + cost + 
+					'</td></tr>'
 				);
 			})
 
