@@ -26,9 +26,13 @@ th:nth-child(3), td:nth-child(3) {
 .allen {
 	background-color: #ff4d4d;
 	color: white;
+	float: left;
+	width: 50%;
 }
 
 .holly {
 	background-color: #4d4dff;
 	color: white;
+	float: right;
+	width: 50%;
 }
