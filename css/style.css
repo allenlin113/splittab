@@ -1,3 +1,16 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: grey;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: grey;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: grey;
+}
+
 th, td {
   text-align: center;
   vertical-align: center;
@@ -28,6 +41,8 @@ th:nth-child(3), td:nth-child(3) {
 	color: white;
 	float: left;
 	width: 50%;
+	width: 100px;
+	text-align: center;
 }
 
 .holly {
@@ -35,8 +50,13 @@ th:nth-child(3), td:nth-child(3) {
 	color: white;
 	float: left;
 	width: 50%;
+<<<<<<< HEAD
 }
 
 option{
 	background : transparent;
+=======
+	width: 100px;
+	text-align: center;
+>>>>>>> 1c3eb8bf4d4aa953c1e1f2ced5b0b1d8bd814b1c
 }
