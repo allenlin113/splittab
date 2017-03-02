@@ -11,11 +11,7 @@
 	
 		<h1>SplitTab</h1>
 
-		<h2>Please Enter Particpants Name</h2>
-			<input id = "input_name" type = "text" placeholder= "Name"><br/>
-			<button id = "add_name_btn" type="button">+ Add new person</button>
-			<br/><div class = "name_group">Participants : </div><br><br>
-	
+		
 
 		<h2>Step 2 _ prompt Expenses/Costs/Participants</h2>
 		<br/>
@@ -95,14 +91,10 @@
 			</tbody>
 		</table>
 
-
-<<<<<<< HEAD
-=======
 		<br/><br/>
 		<input id = "input_expense" type="text" placeholder="Expense"><br/>
 		<input id = "input_cost" type = "text" placeholder="Cost"><br/>
 		<button id = "add_btn" type = "button">Add Expense</button>
->>>>>>> 1c3eb8bf4d4aa953c1e1f2ced5b0b1d8bd814b1c
 
 
 		<br/><br/><h2>Step 3 _ Final Check </h2>
@@ -197,27 +189,6 @@
 				);
 			})
 
-			//add participants
-			var count = 0;
-			$('#add_name_btn').click(function(){
-				var name = $('#input_name').val();
-				$('.name_group').append(
-					'<h4>'+name+'</h4>'
-				);
-				$('.name_group >h4:last').css('color',getColor(count));
-				$('#select_name').append(
-					'<option>'+ name +'</option>'
-				);
-				count = count + 1;
-				document.getElementById('input_name').value = "";
-
-			})
-
-			// var colors = [ff4d4d, 4d4dff, 4dff4d, ffff4d, 4dffff, ff4dff];
-			function getColor(count) {
-				var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
-    			return colors[count % 6];
-			}
 		</script>
 	</body>
 </html>

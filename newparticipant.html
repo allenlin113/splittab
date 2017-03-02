@@ -26,14 +26,37 @@
 
 		<h3>Please Enter Particpants Name</h3>
 
-		You<br><input id = "input_name" type = "text" placeholder= "Your Name"><br><br>
+
+		You<br><input name="input_name" type = "text" placeholder= "Your Name"><br><br>
 		
-		Person2<br><input id = "input_name" type = "text" placeholder= "Name"><br><br>
+		Person 2<br><input name="input_name" type = "text" placeholder= "Name"><br><br>
+
+		<div id="testing"></div>
 
 		<button id = "add_name_btn" type="button">+ Add new person</button>
 
 
 		<script>
+
+		var count = 3;
+
+		$('#add_name_btn').click(function(){
+			var input = document.createElement('input');
+			input.setAttribute("placeholder", "Name");
+
+			var name = 'Person ' + count;
+
+
+
+			document.getElementById("testing").append(name);	
+			document.getElementById("testing").append(document.createElement('br'));
+			document.getElementById("testing").append(input);
+			document.getElementById("testing").append(document.createElement('br'));
+			document.getElementById("testing").append(document.createElement('br'));
+
+			count = count + 1;
+		})
+
 
 		function getColor(count) {
 
