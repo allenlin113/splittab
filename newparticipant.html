@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<style>
+
+		#add_name_btn {
+			background-color: lightblue;
+			border-radius: 5px;
+		}
+	</style>
+
+	<body>
+	
+		<h1>SplitTab</h1>
+		<h2>Create a new Tab</h2>
+
+
+
+		<h3>Restaurant Name</h3>
+		<input type="text" placeholder="Junior's Cheesecake"></input>
+
+
+
+		<h3>Please Enter Particpants Name</h3>
+
+		You<br><input id = "input_name" type = "text" placeholder= "Your Name"><br><br>
+		
+		Person2<br><input id = "input_name" type = "text" placeholder= "Name"><br><br>
+
+		<button id = "add_name_btn" type="button">+ Add new person</button>
+
+
+		<script>
+
+		function getColor(count) {
+
+			var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
+			return colors[count % 6];
+		}
+		
+		</script>
+	</body>
+</html>
