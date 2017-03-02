@@ -14,15 +14,15 @@
 		<table border = "1" id = "myTable">
 			<thead>
 				<tr>
-					<th>Expense</th>
+					<th width="100px" id="expense">Expense</th>
 					<th>Cost</th>
-					<th>Allen</th>
-					<th>Holly</th>
+					<th class="person">Allen</th>
+					<th class="person">Holly</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-					<td>Total1</td>
+					<td>Total</td>
 					<td>$60.94</td>
 					<td>$24.47</td>
 					<td>$36.47</td>
@@ -33,12 +33,7 @@
 					<td>$ 2.17</td>
 					<td>$ 3.24</td>
 				</tr>
-				<tr>
-					<td>Total2</td>
-					<td>$66.35 </td>
-					<td>$26.64</td>
-					<td>$39.71</td>
-				</tr>
+
 				<tr>
 					<td>Tip</td>
 					<td>$10.97</td>
@@ -46,7 +41,7 @@
 					<td>$ 6.56</td>
 				</tr>	
 				<tr>
-					<td>Total3</td>
+					<td>Final Total</td>
 					<td>$77.32</td>
 					<td>$31.05</td>
 					<td>$46.27</td>
@@ -102,7 +97,7 @@
 		
 		Tax % <input type="text" name="tax" size="10px" value="8.875"/>
 
-		Tip % <input type="text" name="tax" size="10px" value="15"/>
+		Tip % <input type="text" name="tip" size="10px" value="15"/>
 
 		<script>
 			$("#add_btn").click(function(){
@@ -113,8 +108,6 @@
 					'</td></tr>'
 				);
 			})
-
-
 		</script>
 	</body>
 </html>

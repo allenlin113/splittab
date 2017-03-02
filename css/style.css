@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+th, td {
+  width: 25%;
+  text-align: right;
+  vertical-align: top;
+}
+
+th.person{
+	text-align: center;
+}
+
+th#expense{
+	text-align: left;
+}
+
+td:nth-child(1) {  
+	text-align: left;
+}
