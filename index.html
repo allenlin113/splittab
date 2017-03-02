@@ -10,6 +10,11 @@
 	<body>
 	
 		<h1>SplitTab</h1>
+
+		<h2>Step 1 _ prompt participants names</h2>
+			<input id = "input_name" type = "text" value = "name"><br/>
+			<button id = "add_name_btn" type = "button">Add Participants</button>
+			<br/><div class = "name_group">Participants : </div><br><br>
 	
 		<table border = "1" id = "myTable">
 			<thead>
@@ -149,6 +154,25 @@
 					'</td></tr>'
 				);
 			})
+
+			$('#add_name_btn').click(function(){
+				var name = $('#input_name').val();
+				$('.name_group').append(
+					'<h4>'+name+'</h4>'
+				);
+				$('.name_group >h4:last').css('color',getRandomColor());
+
+			})
+
+			function getRandomColor() {
+ 				var letters = '0123456789ABCDEF';
+    			var color = '#';
+    			for (var i = 0; i < 6; i++ ) {
+        			color += letters[Math.floor(Math.random() * 16)];
+    			}
+    			return color;
+			}
+
 		</script>
 	</body>
 </html>
