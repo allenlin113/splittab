@@ -4,7 +4,22 @@ th, td {
   vertical-align: top;
 }
 
+th {
+	background-color: grey;
+	color: white;
+}
+
 th:nth-child(1), td:nth-child(1) {  
 	text-align: left;
 	width: 15%;
+}
+
+.allen {
+	background-color: red;
+	color: white;
+}
+
+.holly {
+	background-color: blue;
+	color: white;
 }
