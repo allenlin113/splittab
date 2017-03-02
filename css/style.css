@@ -33,6 +33,6 @@ th:nth-child(3), td:nth-child(3) {
 .holly {
 	background-color: #4d4dff;
 	color: white;
-	float: right;
+	float: left;
 	width: 50%;
 }
