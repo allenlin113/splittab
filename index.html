@@ -11,9 +11,9 @@
 	
 		<h1>SplitTab</h1>
 
-		<h2>Step 1 _ prompt participants names</h2>
+		<h2>Please Enter Particpants Name</h2>
 			<input id = "input_name" type = "text" placeholder= "Name"><br/>
-			<button id = "add_name_btn" type = "button">Add Participants</button>
+			<button id = "add_name_btn" type="button">+ Add new person</button>
 			<br/><div class = "name_group">Participants : </div><br><br>
 	
 		<table border = "1" id = "myTable">
@@ -186,6 +186,7 @@
 				);
 				$('.name_group >h4:last').css('color',getColor(count));
 				count = count + 1;
+				document.getElementById('input_name').value = "";
 
 			})
 
