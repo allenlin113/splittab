@@ -28,6 +28,8 @@ th:nth-child(3), td:nth-child(3) {
 	color: white;
 	float: left;
 	width: 50%;
+	width: 100px;
+	text-align: center;
 }
 
 .holly {
@@ -35,4 +37,6 @@ th:nth-child(3), td:nth-child(3) {
 	color: white;
 	float: left;
 	width: 50%;
+	width: 100px;
+	text-align: center;
 }
