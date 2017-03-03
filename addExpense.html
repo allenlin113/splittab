@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+		<script type = "text/javascript" href = "scripts/javascript.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<style>
+		#add_btn {
+			border-radius: 5px;
+			background-color: lightblue;
+		}
+
+		#grandTotal {
+			color: green;
+			font-style: bold;
+		}
+	</style>
+
+	<body>
+	
+		<h1>SplitTab</h1>
+
+		<input id = "input_expense" type="text" placeholder="Expense"><br/>
+		<input id = "input_cost" type = "text" placeholder="Cost"><br/>
+		<select id = "select_name">
+		
+		</select><br>
+		<button id = "add_btn" type = "button">Add Expense</button>
+
+		<br/><br/>
+		
+		Tax % <input type="text" id="taxPercent" size="10px" value="8.875"/>
+
+		Tip % <input type="text" id="tipPercent" size="10px" value="15"/>
+
+		<br>
+		<br>
+
+		<table border = "1" id = "myTable">
+			<thead>
+				<tr>
+					<th width="100px" id="expense">Expense</th>
+					<th>Cost</th>
+					<th class="person">Split</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td>Total</td>
+					<td><div id="total"></div></td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td><div id="tax"></div></td>
+				</tr>
+
+				<tr>
+					<td>Tip</td>
+					<td><div id="tip"></div></td>
+				</tr>	
+				<tr>
+					<td>Grand Total</td>
+					<td><div id="grandTotal"></div></td>
+				</tr>
+			</tfoot>
+
+			<tbody>
+		
+			</tbody>
+		</table>
+
+		
+
+		<script>
+
+			//add expense/cost/participants
+			$("#add_btn").click(function(){
+				var expense = $("#input_expense").val();
+				var cost = $("#input_cost").val();
+				var name = $("#select_name").val();
+				$("#myTable").append(
+					'<tr><td>'+ expense + '</td><td class="price">' 
+					+ cost + '</td><td>'+ name +'</td></tr>'
+				);
+
+
+
+				$('.price').each(function() {
+					calculateSum();
+					calculateTax();
+					calculateTip();
+					calculateGrandTotal();
+				})
+			})
+
+
+
+			$(document).ready(function() {
+				$('.price').each(function() {
+					calculateSum();
+					calculateTax();
+					calculateTip();
+					calculateGrandTotal();
+				})
+			})
+
+
+			function calculateSum() {
+				var sum=0;
+
+
+				$(".price").each(function() {
+				var value = $(this).text();
+				if (!isNaN(value) && value.length !=0) {
+					sum += parseFloat(value);
+				}
+			})
+				sum = sum.toFixed(2);
+
+				$('#total').text(sum);
+
+			}
+
+			function calculateTax() {
+				var result = $('#total').text();
+				var tax = $('#taxPercent').val();
+
+				var totalTax = result * (tax * 0.01);
+				totalTax = totalTax.toFixed(2);
+
+
+				$('#tax').text(totalTax);
+
+			}
+
+			function calculateTip() {
+				var result = $('#total').text();
+				var tip = $('#tipPercent').val();
+
+				var totalTip = result * (tip * 0.01);
+				totalTip = totalTip.toFixed(2);
+
+
+				$('#tip').text(totalTip);
+
+			}
+
+			function calculateGrandTotal() {
+				var result = parseFloat($('#total').text());
+				var tax = parseFloat($('#tax').text());
+				var tip = parseFloat($('#tip').text());
+
+				var total = result + tax + tip;
+				total = total.toFixed(2);
+
+
+				$('#grandTotal').text(total);
+
+			}
+
+
+		</script>
+	</body>
+</html>

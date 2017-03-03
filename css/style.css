@@ -50,13 +50,10 @@ th:nth-child(3), td:nth-child(3) {
 	color: white;
 	float: left;
 	width: 50%;
-<<<<<<< HEAD
 }
 
 option{
 	background : transparent;
-=======
 	width: 100px;
 	text-align: center;
->>>>>>> 1c3eb8bf4d4aa953c1e1f2ced5b0b1d8bd814b1c
 }
