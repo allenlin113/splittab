@@ -35,18 +35,20 @@
 
 		<button id = "add_name_btn" type="button">+ Add new person</button>
 
+		<button id ="remove_name_btn" type="button">Remove</button>
+
 
 		<script>
 
 		var count = 3;
 
+
 		$('#add_name_btn').click(function(){
-			var input = document.createElement('input');
-			input.setAttribute("placeholder", "Name");
 
 			var name = 'Person ' + count;
 
-
+			var input = document.createElement('input');
+			input.setAttribute("placeholder", "Name");
 
 			document.getElementById("testing").append(name);	
 			document.getElementById("testing").append(document.createElement('br'));
@@ -56,6 +58,14 @@
 
 			count = count + 1;
 		})
+
+		$('#remove_name_btn').click(function(){
+
+			var select = document.getElementById("testing");
+			select.removeChild(select.lastChild);
+
+		})
+
 
 
 		function getColor(count) {
