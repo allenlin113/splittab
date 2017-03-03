@@ -47,6 +47,7 @@
 
 			var name = 'Person ' + count;
 			$("#testing").append('<div>'+name+'<br><input placeholder = "name"></input><br><br><div>');
+			$("#testing :last-child input").focus();
 			count = count + 1;
 		})
 
