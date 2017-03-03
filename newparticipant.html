@@ -46,15 +46,20 @@
 		$('#add_name_btn').click(function(){
 
 			var name = 'Person ' + count;
-			$("#testing").append('<div>'+name+'<br><input placeholder = "name"></input><br><br><div>');
+			$("#testing").append('<div>'+name+'<br><input placeholder = "Name"></input><br><br><div>');
 			$("#testing :last-child input").focus();
 			count = count + 1;
 		})
 
+
 		$('#remove_name_btn').click(function(){
 
-			var select = document.getElementById("testing");
-			select.removeChild(select.lastChild);
+			if (count > 3) 
+			{
+				var select = document.getElementById("testing");
+				select.removeChild(select.lastChild);
+				count -= 1;
+			}
 		})
 
 
