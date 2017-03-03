@@ -46,16 +46,7 @@
 		$('#add_name_btn').click(function(){
 
 			var name = 'Person ' + count;
-
-			var input = document.createElement('input');
-			input.setAttribute("placeholder", "Name");
-
-			document.getElementById("testing").append(name);	
-			document.getElementById("testing").append(document.createElement('br'));
-			document.getElementById("testing").append(input);
-			document.getElementById("testing").append(document.createElement('br'));
-			document.getElementById("testing").append(document.createElement('br'));
-
+			$("#testing").append('<div>'+name+'<br><input placeholder = "name"></input><br><br><div>');
 			count = count + 1;
 		})
 
@@ -63,7 +54,6 @@
 
 			var select = document.getElementById("testing");
 			select.removeChild(select.lastChild);
-
 		})
 
 
