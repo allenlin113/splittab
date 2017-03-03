@@ -14,6 +14,7 @@
 		#remove_name_btn {
 			background-color: pink;
 			border-radius: 5px;
+			visibility: hidden;
 		}
 	</style>
 
@@ -45,26 +46,32 @@
 
 		<script>
 
-		var count = 3;
+		var count = 2;
 
 
 		$('#add_name_btn').click(function(){
 
+			count += 1;
 			var name = 'Person ' + count;
 			$("#testing").append('<div>'+name+'<br><input placeholder = "Name"></input><br><br><div>');
 			$("#testing :last-child input").focus();
-			count = count + 1;
+			$('#remove_name_btn').css("visibility", "visible")
 		})
 
 
 		$('#remove_name_btn').click(function(){
 
-			if (count > 3) 
-			{
-				var select = document.getElementById("testing");
-				select.removeChild(select.lastChild);
-				count -= 1;
+			count -= 1;
+			var select = document.getElementById("testing");
+
+			if (count < 3) {
+				$('#remove_name_btn').css("visibility", "hidden");
 			}
+			else {
+				var select = document.getElementById("testing");
+			}
+			
+			select.removeChild(select.lastChild);
 		})
 
 
