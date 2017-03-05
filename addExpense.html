@@ -29,15 +29,17 @@ tfoot {
 tfoot #btn_row {
 	background-color: black;
 }
+
+
 </style>
 
 <body>
 	
 	<h1>SplitTab</h1>
 
-	Tax % <input type="number" step="0.125" id="taxPercent" size="10px" value="8.875" max="20" min="0" onchange="calculateAll()"/>
+	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" onchange="calculateAll()"/>
 	<br>
-	Tip % <input type="number" step="1" id="tipPercent" size="10px" value="15" max="100" min="0" onchange="calculateAll()"/>
+	Tip %: <input type="number" step="1" id="tipPercent" value="15" max="100" min="0" onchange="calculateAll()"/>
 	<br><br>
 
 	<table border = "1" id = "myTable">
@@ -82,7 +84,7 @@ tfoot #btn_row {
 				$("#myTable").append(
 					'<tr><td><input type="text" placeholder="Burger"></td>'
 					+
-					'<td><input type="number" class="price" placeholder="1.99" step="any" onchange="calculateAll()"></td>'
+					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+
 					'<td></td></tr>'
 					);
