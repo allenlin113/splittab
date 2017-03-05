@@ -81,7 +81,7 @@
 				var cost = $("#input_cost").val();
 				var name = $("#select_name").val();
 				$("#myTable").append(
-					'<tr><td><input type="text" value='+ expense + '></td><td class="price"><input type="number" value=' 
+					'<tr><td><input type="text" value='+ expense + '></td><td><input type="number" class="price" value=' 
 					+ cost + '></td><td>'+ name +'</td></tr>'
 				);
 
@@ -119,10 +119,10 @@
 
 
 				$(".price").each(function() {
-				var value = $(this).text();
-				if (!isNaN(value) && value.length !=0) {
-					sum += parseFloat(value);
-				}
+					var value = $(this).val();
+					if (!isNaN(value) && value.length !=0) {
+						sum += parseFloat(value);
+					}
 			})
 				sum = sum.toFixed(2);
 
