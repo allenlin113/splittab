@@ -47,7 +47,7 @@
 
 	<script>
 
-	var count = 2;
+	var count = 1;
 
 
 	$('#add_name_btn').click(function(){
@@ -58,7 +58,7 @@
 		$("#testing :last-child input").focus();
 		$('#remove_name_btn').css("visibility", "visible");
 
-		if(count == 3){
+		if(count == 2){
 			$('#participants_list').append('<div class = "participant_option">'+$('#person1').val()+'</div>');
 		}else{
 			$('#participants_list').append('<div class = "participant_option">'+$("#testing :nth-last-child(2) input").val()+'</div>');
@@ -71,7 +71,7 @@
 		count -= 1;
 		var select = document.getElementById("testing");
 
-		if (count < 3) {
+		if (count < 2) {
 			$('#remove_name_btn').css("visibility", "hidden");
 		}
 		else {
