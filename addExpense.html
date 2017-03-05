@@ -81,8 +81,8 @@
 				var cost = $("#input_cost").val();
 				var name = $("#select_name").val();
 				$("#myTable").append(
-					'<tr><td>'+ expense + '</td><td class="price">' 
-					+ cost + '</td><td>'+ name +'</td></tr>'
+					'<tr><td><input type="text" value='+ expense + '></td><td class="price"><input type="text" value=' 
+					+ cost + '></td><td>'+ name +'</td></tr>'
 				);
 
 
@@ -160,7 +160,7 @@
 				var tip = parseFloat($('#tip').text());
 
 				var total = result + tax + tip;
-				total = total.toFixed(2);
+				total = '$' + total.toFixed(2);
 
 
 				$('#grandTotal').text(total);
