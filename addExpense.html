@@ -7,6 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
+
 <style>
 #add_btn {
 	border-radius: 5px;
@@ -30,16 +31,15 @@ tfoot #btn_row {
 	background-color: black;
 }
 
-
 </style>
 
 <body>
 	
 	<h1>SplitTab</h1>
 
-	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" onchange="calculateAll()"/>
+	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 55px;" onchange="calculateAll()"/>
 	<br>
-	Tip %: <input type="number" step="1" id="tipPercent" value="15" max="100" min="0" onchange="calculateAll()"/>
+	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 55px;" onchange="calculateAll()"/>
 	<br><br>
 
 	<table border = "1" id = "myTable">
@@ -78,9 +78,9 @@ tfoot #btn_row {
 	</table>
 
 	<script>
+
 			//add expense/cost/participants
 			$("#add_btn").click(function(){
-
 				$("#myTable").append(
 					'<tr><td><input type="text" placeholder="Burger"></td>'
 					+
@@ -88,7 +88,6 @@ tfoot #btn_row {
 					+
 					'<td></td></tr>'
 					);
-
 			})
 
 			//Calculates all four rows of tfoot
@@ -96,8 +95,7 @@ tfoot #btn_row {
 				calculateSum();
 				calculateTax();
 				calculateTip();
-				calculateGrandTotal();
-				
+				calculateGrandTotal();	
 			}
 
 			//Calculates the sum of tbody
