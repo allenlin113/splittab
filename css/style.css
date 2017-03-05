@@ -57,3 +57,29 @@ option{
 	width: 100px;
 	text-align: center;
 }
+
+div#participants_list {
+}
+
+.participant_option {
+	width: 75px;
+    padding: 6px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.participant_option:hover {
+    background-color: lightgray;
+}
+
+.select{
+	background-color: #70e25f;
+}
+.select:hover{
+	background-color: #70e25f;	
+}
+
+.setVisible{
+	visibility: hidden;
+}
+

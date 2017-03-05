@@ -2,7 +2,10 @@
 <html>
 
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 	<style>
 
@@ -33,9 +36,7 @@
 		<h3>Please Enter Particpants Name</h3>
 
 
-		You<br><input name="input_name" type = "text" placeholder= "Your Name"><br><br>
-		
-		Person 2<br><input name="input_name" type = "text" placeholder= "Name"><br><br>
+		You<br><input id = "person1" name="input_name" type = "text" placeholder= "Your Name"><br><br>
 
 		<div id="testing"></div>
 
@@ -43,6 +44,11 @@
 
 		<button id ="remove_name_btn" type="button">- Remove</button>
 
+
+		<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
+			<div id = "participants_list">
+			</div>
+		</span>
 
 		<script>
 
@@ -55,8 +61,14 @@
 			var name = 'Person ' + count;
 			$("#testing").append('<div>'+name+'<br><input placeholder = "Name"></input><br><br><div>');
 			$("#testing :last-child input").focus();
-			$('#remove_name_btn').css("visibility", "visible")
-		})
+			$('#remove_name_btn').css("visibility", "visible");
+			
+			if(count == 3){
+				$('#participants_list').append('<div class = "participant_option">'+$('#person1').val()+'</div>');
+			}else{
+				$('#participants_list').append('<div class = "participant_option">'+$("#testing :nth-last-child(2) input").val()+'</div>');
+			}
+		});
 
 
 		$('#remove_name_btn').click(function(){
@@ -72,7 +84,17 @@
 			}
 
 			select.removeChild(select.lastChild);
-		})
+		});
+
+
+		
+		$("#add_participant").click(function(){
+			$("div#participants_list").css("visibility","visible");
+		});
+
+		$(document).on('click', '.participant_option', function(){
+			$(this).toggleClass('select');
+		});
 
 
 
