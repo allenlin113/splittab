@@ -30,13 +30,8 @@
 	
 		<h1>SplitTab</h1>
 
-
-		<button id = "add_btn" type = "button">Add Expense</button>
-
-		<br/><br/>
-		
 		Tax % <input type="number" step="0.125" id="taxPercent" size="10px" value="8.875" max="20" min="0" onchange="calculateTax(); calculateGrandTotal();"/>
-
+		<br>
 		Tip % <input type="number" step="1" id="tipPercent" size="10px" value="15" max="100" min="0" onchange="calculateTip(); calculateGrandTotal();"/>
 
 		<br>
@@ -51,6 +46,9 @@
 				</tr>
 			</thead>
 			<tfoot>
+				<tr>
+					<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
+				<tr>
 				<tr>
 					<td>Total</td>
 					<td><div id="total"></div></td>
