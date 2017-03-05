@@ -26,11 +26,7 @@
 	
 		<h1>SplitTab</h1>
 
-		<input id = "input_expense" type="text" placeholder="Expense"><br/>
-		<input id = "input_cost" type = "number" placeholder="Cost"><br/>
-		<select id = "select_name">
-		
-		</select><br>
+
 		<button id = "add_btn" type = "button">Add Expense</button>
 
 		<br/><br/>
@@ -81,16 +77,14 @@
 
 			//add expense/cost/participants
 			$("#add_btn").click(function(){
-				var expense = $("#input_expense").val();
-				var cost = $("#input_cost").val();
-				var name = $("#select_name").val();
 
-				cost = parseFloat(cost);
-				cost = cost.toFixed(2);
 
 				$("#myTable").append(
-					'<tr><td><input type="text" value='+ expense + '></td><td><input type="number" class="price" value=' 
-					+ cost + '></td><td>'+ name +'</td></tr>'
+					'<tr><td><input type="text" placeholder="Burger"></td>'
+					+
+					'<td><input type="number" class="price" placeholder="1.99"></td>'
+					+
+					'<td></td></tr>'
 				);
 
 
