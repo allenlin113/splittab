@@ -1,139 +1,119 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-		<script type = "text/javascript" href = "scripts/javascript.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	</head>
-	<style>
-		#add_btn {
-			border-radius: 5px;
-			background-color: lightblue;
-		}
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+	<script type = "text/javascript" href = "scripts/javascript.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
 
-		#grandTotal {
-			font-style: bold;
-		}
-		.price {
-			text-align: center;
-			font-size: 16px;
-		}
+<style>
+#add_btn {
+	border-radius: 5px;
+	background-color: lightblue;
+}
 
-		tfoot {
-			background-color: grey;
-			color: white;
-		}
-	</style>
+#grandTotal {
+	font-style: bold;
+}
+.price {
+	text-align: center;
+	font-size: 16px;
+}
 
-	<body>
+tfoot {
+	background-color: grey;
+	color: white;
+}
+
+tfoot #btn_row {
+	background-color: black;
+}
+</style>
+
+<body>
 	
-		<h1>SplitTab</h1>
+	<h1>SplitTab</h1>
 
-		Tax % <input type="number" step="0.125" id="taxPercent" size="10px" value="8.875" max="20" min="0" onchange="calculateTax(); calculateGrandTotal();"/>
-		<br>
-		Tip % <input type="number" step="1" id="tipPercent" size="10px" value="15" max="100" min="0" onchange="calculateTip(); calculateGrandTotal();"/>
+	Tax % <input type="number" step="0.125" id="taxPercent" size="10px" value="8.875" max="20" min="0" onchange="calculateAll()"/>
+	<br>
+	Tip % <input type="number" step="1" id="tipPercent" size="10px" value="15" max="100" min="0" onchange="calculateAll()"/>
+	<br><br>
 
-		<br>
-		<br>
+	<table border = "1" id = "myTable">
+		<thead>
+			<tr>
+				<th width="100px" id="expense">Expense</th>
+				<th>Cost</th>
+				<th class="person">Split</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr id="btn_row">
+				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td><div id="total"></div></td>
+			</tr>
+			<tr>
+				<td>Tax</td>
+				<td><div id="tax"></div></td>
+			</tr>
 
-		<table border = "1" id = "myTable">
-			<thead>
-				<tr>
-					<th width="100px" id="expense">Expense</th>
-					<th>Cost</th>
-					<th class="person">Split</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
-				<tr>
-				<tr>
-					<td>Total</td>
-					<td><div id="total"></div></td>
-				</tr>
-				<tr>
-					<td>Tax</td>
-					<td><div id="tax"></div></td>
-				</tr>
+			<tr>
+				<td>Tip</td>
+				<td><div id="tip"></div></td>
+			</tr>	
+			<tr>
+				<td>Grand Total</td>
+				<td><div id="grandTotal"></div></td>
+			</tr>
+		</tfoot>
 
-				<tr>
-					<td>Tip</td>
-					<td><div id="tip"></div></td>
-				</tr>	
-				<tr>
-					<td>Grand Total</td>
-					<td><div id="grandTotal"></div></td>
-				</tr>
-			</tfoot>
+		<tbody>
+		</tbody>
+	</table>
 
-			<tbody>
-		
-			</tbody>
-		</table>
-
-		
-
-		<script>
-
+	<script>
 			//add expense/cost/participants
 			$("#add_btn").click(function(){
-
 
 				$("#myTable").append(
 					'<tr><td><input type="text" placeholder="Burger"></td>'
 					+
-					'<td><input type="number" class="price" placeholder="1.99"></td>'
+					'<td><input type="number" class="price" placeholder="1.99" step="any" onchange="calculateAll()"></td>'
 					+
 					'<td></td></tr>'
-				);
+					);
 
-
-
-				$('.price').each(function() {
-					calculateSum();
-					calculateTax();
-					calculateTip();
-					calculateGrandTotal();
-				})
 			})
 
+			//Calculates all four rows of tfoot
 			function calculateAll() {
 				calculateSum();
 				calculateTax();
 				calculateTip();
-				calculateAll();
+				calculateGrandTotal();
+				
 			}
 
-
-
-			$(document).ready(function() {
-				$('.price').each(function() {
-					calculateSum();
-					calculateTax();
-					calculateTip();
-					calculateGrandTotal();
-				})
-			})
-
-
+			//Calculates the sum of tbody
 			function calculateSum() {
 				var sum=0;
-
 
 				$(".price").each(function() {
 					var value = $(this).val();
 					if (!isNaN(value) && value.length !=0) {
 						sum += parseFloat(value);
 					}
-			})
+				})
 				sum = sum.toFixed(2);
 
 				$('#total').text(sum);
-
 			}
 
+			//Takes the tax percent and multiplying it with total sum
 			function calculateTax() {
 				var result = $('#total').text();
 				var tax = $('#taxPercent').val();
@@ -141,11 +121,10 @@
 				var totalTax = result * (tax * 0.01);
 				totalTax = totalTax.toFixed(2);
 
-
 				$('#tax').text(totalTax);
-
 			}
 
+			//Takes the tip percent and multiplies it with the total sum
 			function calculateTip() {
 				var result = $('#total').text();
 				var tip = $('#tipPercent').val();
@@ -153,11 +132,10 @@
 				var totalTip = result * (tip * 0.01);
 				totalTip = totalTip.toFixed(2);
 
-
 				$('#tip').text(totalTip);
-
 			}
 
+			//Adds total sum, tax and tip to get grand total
 			function calculateGrandTotal() {
 				var result = parseFloat($('#total').text());
 				var tax = parseFloat($('#tax').text());
@@ -166,12 +144,9 @@
 				var total = result + tax + tip;
 				total = '$' + total.toFixed(2);
 
-
 				$('#grandTotal').text(total);
-
 			}
 
-
-		</script>
-	</body>
-</html>
+			</script>
+		</body>
+		</html>
