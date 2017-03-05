@@ -84,6 +84,10 @@
 				var expense = $("#input_expense").val();
 				var cost = $("#input_cost").val();
 				var name = $("#select_name").val();
+
+				cost = parseFloat(cost);
+				cost = cost.toFixed(2);
+
 				$("#myTable").append(
 					'<tr><td><input type="text" value='+ expense + '></td><td><input type="number" class="price" value=' 
 					+ cost + '></td><td>'+ name +'</td></tr>'
