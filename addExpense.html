@@ -37,8 +37,8 @@ tfoot #btn_row {
 	background-color: red;
 	color: white;
 	position: absolute;
-	left: 205px;
-	top: -10px;
+	margin-left: 105px;
+	margin-top: -10px;
 }
 
 .delete_btn_wrapper {
@@ -69,20 +69,20 @@ tfoot #btn_row {
 			</tr>
 			<tr>
 				<td>Total</td>
-				<td><div id="total"></div></td>
+				<td><div id="total">0.00</div></td>
 			</tr>
 			<tr>
 				<td>Tax</td>
-				<td><div id="tax"></div></td>
+				<td><div id="tax">0.00</div></td>
 			</tr>
 
 			<tr>
 				<td>Tip</td>
-				<td><div id="tip"></div></td>
+				<td><div id="tip">0.00</div></td>
 			</tr>	
 			<tr>
 				<td>Grand Total</td>
-				<td><div id="grandTotal"></div></td>
+				<td><div id="grandTotal">0.00</div></td>
 			</tr>
 		</tfoot>
 
@@ -99,7 +99,7 @@ tfoot #btn_row {
 					+
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+
-					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button">Delete</button></div></td></tr>'
+					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">Delete</button></div></td></tr>'
 					);
 			})
 
@@ -160,6 +160,10 @@ tfoot #btn_row {
 				$('#grandTotal').text(total);
 			}
 
+			function deleteRow(element) {
+				var row = element.parentNode.parentNode.parentNode;
+				row.parentNode.removeChild(row);
+			}
 	</script>
 </body>
 </html>
