@@ -9,12 +9,12 @@
 </head>
 <style>
 
-#add_name_btn {
+#add_participant_btn {
 	background-color: lightblue;
 	border-radius: 5px;
 }
 
-#remove_name_btn {
+#remove_participant_btn {
 	background-color: pink;
 	border-radius: 5px;
 	visibility: hidden;
@@ -35,9 +35,9 @@
 
 	<div id="testing"></div>
 
-	<button id = "add_name_btn" type="button">+ Add new person</button>
+	<button id = "add_participant_btn" type="button">+ Add new person</button>
 
-	<button id ="remove_name_btn" type="button">- Remove</button>
+	<button id ="remove_participant_btn" type="button">- Remove</button>
 
 
 	<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
@@ -50,13 +50,13 @@
 	var count = 1;
 
 
-	$('#add_name_btn').click(function(){
+	$('#add_participant_btn').click(function(){
 
 		count += 1;
 		var name = 'Person ' + count;
 		$("#testing").append('<div>'+name+'<br><input placeholder = "Name"></input><br><br><div>');
 		$("#testing :last-child input").focus();
-		$('#remove_name_btn').css("visibility", "visible");
+		$('#remove_participant_btn').css("visibility", "visible");
 
 		if(count == 2){
 			$('#participants_list').append('<div class = "participant_option">'+$('#person1').val()+'</div>');
@@ -66,13 +66,13 @@
 	});
 
 
-	$('#remove_name_btn').click(function(){
+	$('#remove_participant_btn').click(function(){
 
 		count -= 1;
 		var select = document.getElementById("testing");
 
 		if (count < 2) {
-			$('#remove_name_btn').css("visibility", "hidden");
+			$('#remove_participant_btn').css("visibility", "hidden");
 		}
 		else {
 			var select = document.getElementById("testing");
