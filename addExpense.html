@@ -34,15 +34,30 @@ tfoot #btn_row {
 
 .delete_btn {
 	border-radius: 5px;
-	background-color: red;
+	background-color: salmon;
 	color: white;
 	position: absolute;
-	margin-left: 105px;
+	margin-left: 110px;
 	margin-top: -10px;
+	font-size: 12px;
 }
 
 .delete_btn_wrapper {
 	position: relative;
+}
+
+.delete_btn {
+	visibility: hidden;
+	 -webkit-transition: visibility .05s;
+	 transition: visibility .05s;
+}
+
+tr:hover .delete_btn {
+	visibility: visible;
+}
+
+.delete_btn:hover .delete_btn{
+	visibility: visible;
 }
 </style>
 
@@ -50,9 +65,9 @@ tfoot #btn_row {
 	
 	<h1>SplitTab</h1>
 
-	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 55px;" onchange="calculateAll()"/>
+	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 47px;" onchange="calculateAll()"/>
 	<br>
-	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 55px;" onchange="calculateAll()"/>
+	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 46px;" onchange="calculateAll()"/>
 	<br><br>
 
 	<table border = "1" id = "myTable">
@@ -82,7 +97,7 @@ tfoot #btn_row {
 			</tr>	
 			<tr>
 				<td>Grand Total</td>
-				<td><div id="grandTotal">0.00</div></td>
+				<td><div id="grandTotal">$0.00</div></td>
 			</tr>
 		</tfoot>
 
