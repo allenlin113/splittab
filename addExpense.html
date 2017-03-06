@@ -17,9 +17,10 @@
 #grandTotal {
 	font-style: bold;
 }
+
 .price {
 	text-align: center;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 tfoot {
@@ -31,6 +32,18 @@ tfoot #btn_row {
 	background-color: black;
 }
 
+.delete_btn {
+	border-radius: 5px;
+	background-color: red;
+	color: white;
+	position: absolute;
+	left: 205px;
+	top: -10px;
+}
+
+.delete_btn_wrapper {
+	position: relative;
+}
 </style>
 
 <body>
@@ -86,7 +99,7 @@ tfoot #btn_row {
 					+
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+
-					'<td></td></tr>'
+					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button">Delete</button></div></td></tr>'
 					);
 			})
 
@@ -147,6 +160,6 @@ tfoot #btn_row {
 				$('#grandTotal').text(total);
 			}
 
-			</script>
+	</script>
 </body>
 </html>
