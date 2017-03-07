@@ -8,46 +8,40 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
 </head>
+<style>
+#remove_btn {
+	visibility: hidden;
+}
+
+.person:hover #remove_btn {
+	visibility: visible;
+}
+</style>
 
 <body>
 	<div class = "bodyBox">
-	<h4>----------------------------</h4>
-	<h1 id = "title">SplitTab</h1>
-	<h4>----------------------------</h4>
+		<h4>----------------------------</h4>
+		<h1 id = "title">SplitTab</h1>
+		<h4>----------------------------</h4>
 
-	<h3>Restaurant Name</h3>
-	<input type="text" placeholder="Junior's Cheesecake" value = "" id ="restaurant_name"></input>
-	<h4>--------------------------------------------------------</h4>
-	<h3>Please Enter Particpants Name</h3>
+		<h3>Restaurant Name</h3>
+		<input type="text" placeholder="Junior's Cheesecake" value = "" id ="restaurant_name"></input>
+		<h4>--------------------------------------------------------</h4>
+		<h3>Please Enter Particpants Name</h3>
 
-	<!--<br><input id = "person1" name="input_name" type = "text" placeholder= "Name"><br><br> -->
+		<div id="person_list"></div>
 
-	<div id="testing"></div>
-
-	<button id = "add_participant_btn" type="button">+ Add new person</button>
-	<h4>--------------------------------------------------------</h4>
-	<button id = "done_btn" type = "button">Done</button>
-	<h4>Thank You</h4>
-
-	
-
-<!--	<button id ="remove_participant_btn" type="button">- Remove</button>
--->
-
-	<!--<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
-
-
-	</span>
-			<div id = "participants_list">
-		</div>
-	-->
-
+		<button id = "new_person_btn" type="button">+ Add new person</button>
+		<h4>--------------------------------------------------------</h4>
+		<button id = "done_btn" type="button">Done</button>
+		<h4>Thank You</h4>
 	</div>
+
 	<div class = "bodyBox" id = "addExpenseRecipt">
 		<h4>----------------------------</h4>
-		<h1 id = "restaurant"></h1>
+		<h1 id ="restaurant"></h1>
 		<h4>----------------------------</h4>
-		<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true"></span>
+		<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>
 		<div id = "participants_list"></div>
 
 	</div>
@@ -56,36 +50,22 @@
 	var count = 1;
 
 
-	$('#add_participant_btn').click(function(){
+	$('#new_person_btn').click(function(){
 
 		count += 1;
 		//var name = 'Person ' + count;
-		$("#testing").append('<div class = "person"><br><input placeholder = "Name"></input><span id = "remove_btn" class="glyphicon glyphicon-remove-sign" style = "color:red;" aria-hidden="true"></span><br><br><div>');
-		$("#testing :last-child input").focus();
-		$('#remove_participant_btn').css("visibility", "visible");
+		$("#person_list").append('<div class="person"><br><input placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true"></span><br><br><div>');
+		$("#person_list :last-child input").focus();
 		
 		if(count == 2){
-			$('#participants_list').append('<div class = "participant_option">'+$('#person1').val()+'</div>');
+			$('#participants_list').append('<div class = "participant_option">'+$('#person').val()+'</div>');
+			console.log("1");
 		}else{
-			$('#participants_list').append('<div class = "participant_option">'+$("#testing :nth-last-child(2) input").val()+'</div>');
+			$('#participants_list').append('<div class = "participant_option">'+$("#person_list :nth-last-child(2) input").val()+'</div>');
+			console.log("2");
 		}
 	});
 
-
-	$('#remove_participant_btn').click(function(){
-
-		count -= 1;
-		var select = document.getElementById("testing");
-
-		if (count < 2) {
-			$('#remove_participant_btn').css("visibility", "hidden");
-		}
-		else {
-			var select = document.getElementById("testing");
-		}
-
-		select.removeChild(select.lastChild);
-	});
 
 
 	$("#add_participant").click(function(){
@@ -93,8 +73,7 @@
 			$("div#participants_list").css('visibility','hidden');
 		}else{
 			$("div#participants_list").css('visibility','visible');
-		}
-		
+		}	
 	});
 
 	$(document).on('click', '.participant_option', function(){
@@ -109,19 +88,20 @@
 		if(!$('#restaurant_name').val()){
 			alert("You forgot to input Restaurant name!");
 		}else{
-		$('.bodyBox').css('display','none');
-		$('#addExpenseRecipt').css('display','block');
-		$('#restaurant').html( $('#restaurant_name').val());
+			$('.bodyBox').css('display','none');
+			$('#addExpenseRecipt').css('display','block');
+			$('#restaurant').html( $('#restaurant_name').val());
 		}
 	})
 
+
+
+
+	//Not useful yet
 	function getColor(count) {
 		var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
 		return colors[count % 6];
 	}
-
-
-
 
 	</script>
 </body>

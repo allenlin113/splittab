@@ -36,22 +36,6 @@ th:nth-child(3), td:nth-child(3) {
 	width: 200px;
 }
 
-.allen {
-	background-color: #ff4d4d;
-	color: white;
-	float: left;
-	width: 50%;
-	width: 100px;
-	text-align: center;
-}
-
-.holly {
-	background-color: #4d4dff;
-	color: white;
-	float: left;
-	width: 50%;
-}
-
 option{
 	background : transparent;
 	width: 100px;
@@ -104,7 +88,7 @@ div#participants_list {
 	display: none;
 }
 
-#add_participant_btn {
+#new_person_btn {
 	background-color: lightblue;
 	border-radius: 5px;
 	display: block;
@@ -114,13 +98,24 @@ div#participants_list {
     margin-bottom: 50px;
 }
 
-#remove_participant_btn {
-	background-color: pink;
-	border-radius: 5px;
-	visibility: hidden;
-}
-
 #done_btn{
 	background-color: lightgreen;
 	border-radius: 5px;
+}
+
+
+.allen {
+	background-color: #ff4d4d;
+	color: white;
+	float: left;
+	width: 50%;
+	width: 100px;
+	text-align: center;
+}
+
+.holly {
+	background-color: #4d4dff;
+	color: white;
+	float: left;
+	width: 50%;
 }
