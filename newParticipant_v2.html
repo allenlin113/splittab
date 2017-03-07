@@ -47,26 +47,35 @@
 	</div>
 	<script>
 
-	var count = 1;
-
+	//ENTER PARTICIPANT PAGE
 
 	$('#new_person_btn').click(function(){
-
-		count += 1;
-		//var name = 'Person ' + count;
-		$("#person_list").append('<div class="person"><br><input placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true"></span><br><br><div>');
+		$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true"></span><br><br><div>');
 		$("#person_list :last-child input").focus();
-		
-		if(count == 2){
-			$('#participants_list').append('<div class = "participant_option">'+$('#person').val()+'</div>');
-			console.log("1");
-		}else{
-			$('#participants_list').append('<div class = "participant_option">'+$("#person_list :nth-last-child(2) input").val()+'</div>');
-			console.log("2");
-		}
+		});
+
+	$(document).on('click', '#remove_btn', function(){
+		$(this).parent().remove();
 	});
 
+	$('#done_btn').click(function(){
+		if(!$('#restaurant_name').val()){
+			alert("You forgot to input Restaurant name!");
+		}else{
+			$('.bodyBox').css('display','none');
+			$('#addExpenseRecipt').css('display','block');
+			$('#restaurant').html( $('#restaurant_name').val());
 
+			//Process list
+			$("#person_list .person_name").each(function() {
+				$('#participants_list').append('<div class = "participant_option">'+$(this).val()+'</div>');
+			})
+	
+		}
+	})
+
+
+	//PARTICIPANTS LIST PAGE
 
 	$("#add_participant").click(function(){
 		if($("div#participants_list").css("visibility") == 'visible'){
@@ -80,28 +89,6 @@
 		$(this).toggleClass('select');
 	});
 
-	$(document).on('click', '#remove_btn', function(){
-		$(this).parent().remove();
-	});
-
-	$('#done_btn').click(function(){
-		if(!$('#restaurant_name').val()){
-			alert("You forgot to input Restaurant name!");
-		}else{
-			$('.bodyBox').css('display','none');
-			$('#addExpenseRecipt').css('display','block');
-			$('#restaurant').html( $('#restaurant_name').val());
-		}
-	})
-
-
-
-
-	//Not useful yet
-	function getColor(count) {
-		var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
-		return colors[count % 6];
-	}
 
 	</script>
 </body>
