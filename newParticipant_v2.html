@@ -66,11 +66,26 @@
 			$('#addExpenseRecipt').css('display','block');
 			$('#restaurant').html( $('#restaurant_name').val());
 
-			//Process list
+			
+			/*Process list
+			
 			$("#person_list .person_name").each(function() {
 				$('#participants_list').append('<div class = "participant_option">'+$(this).val()+'</div>');
 			})
-	
+			
+			*/		
+
+			//Alphabetize list
+			var names = [];
+			$("#person_list .person_name").each(function() {
+				names.push($(this).val());
+			})
+
+			names.sort();
+
+			$.each(names, function(i, val) {
+				$('#participants_list').append('<div class = "participant_option">'+ val +'</div>');
+			})
 		}
 	})
 
