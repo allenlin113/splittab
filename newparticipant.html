@@ -96,7 +96,7 @@ tr:hover .delete_btn {
 		<h4>----------------------------</h4>
 		<h1 id ="restaurant"></h1>
 		<h4>----------------------------</h4>
-		<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>
+	<!--	<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span> -->
 		<div id = "participants_list"></div>
 
 
@@ -183,12 +183,16 @@ tr:hover .delete_btn {
 
 	//PARTICIPANTS LIST PAGE
 
-	$("#add_participant").click(function(){
+	$(document).on('click', '#add_participant', function(){
 		if($("div#participants_list").css("visibility") == 'visible'){
 			$("div#participants_list").css('visibility','hidden');
 		}else{
 			$("div#participants_list").css('visibility','visible');
-		}	
+		}
+
+	});
+	$("#add_participant").click(function(){
+			
 	});
 
 	$(document).on('click', '.participants_list_name', function(){
@@ -205,10 +209,22 @@ tr:hover .delete_btn {
 					+
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+
+					'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>'
+					+
+					'<div id = "participants_list"></div></span>'
+					+ 
+					'<div class = "participants_selected"></div>'
+					+
+					'<td>'
+					+
 					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">Delete</button></div></td></tr>'
 					);
 			});
 
+				$(document).on('click', '.participants_list_name.select', function(){
+					
+				});
+		
 			//Calculates all four rows of tfoot
 			function calculateAll() {
 				calculateSum();

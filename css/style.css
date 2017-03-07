@@ -33,7 +33,7 @@ th:nth-child(2), td:nth-child(2) {
 
 
 th:nth-child(3), td:nth-child(3) {  
-	width: 200px;
+	width: 100px;
 }
 
 option{
@@ -43,6 +43,7 @@ option{
 }
 
 div#participants_list {
+  visibility: hidden;
 }
 
 .participants_list_name {
