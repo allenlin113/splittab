@@ -1,146 +1,164 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-		<script type = "text/javascript" href = "scripts/javascript.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	</head>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
+	<script type = "text/javascript" href = "scripts/javascript.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<style>
 
-	<body>
+.allen {
+	background-color: #ff4d4d;
+	color: white;
+	float: left;
+	width: 50%;
+	width: 100px;
+	text-align: center;
+}
+
+.holly {
+	background-color: #4d4dff;
+	color: white;
+	float: left;
+	width: 50%;
+}
+
+</style>
+<body>
 	
-		<h1>SplitTab</h1>
+	<h1>SplitTab</h1>
 
+
+
+	<h2>Step 2 _ prompt Expenses/Costs/Participants</h2>
+	<br/>
+	<input id = "input_expense" type="text" placeholder= "Expense"><br/>
+	<input id = "input_cost" type = "text" placeholder= "Cost"><br/>
+	<select id = "select_name">
 		
+	</select><br>
+	<button id = "add_btn" type = "button">Add Expense</button>
 
-		<h2>Step 2 _ prompt Expenses/Costs/Participants</h2>
-		<br/>
-		<input id = "input_expense" type="text" placeholder= "Expense"><br/>
-		<input id = "input_cost" type = "text" placeholder= "Cost"><br/>
-		<select id = "select_name">
-		
-		</select><br>
-		<button id = "add_btn" type = "button">Add Expense</button>
+	<br/><br/>
 
-		<br/><br/>
-		
-		Tax % <input type="text" name="tax" size="10px" value="8.875"/>
+	Tax % <input type="text" name="tax" size="10px" value="8.875"/>
 
-		Tip % <input type="text" name="tip" size="10px" value="15"/>
+	Tip % <input type="text" name="tip" size="10px" value="15"/>
 
 
-		<table border = "1" id = "myTable">
-			<thead>
-				<tr>
-					<th width="100px" id="vexpense">Expense</th>
-					<th>Cost</th>
-					<th class="person">Split</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td>Total</td>
-					<td>$60.94</td>
-				</tr>
-				<tr>
-					<td>Tax</td>
-					<td>$ 5.41 </td>
-				</tr>
+	<table border = "1" id = "myTable">
+		<thead>
+			<tr>
+				<th width="100px" id="vexpense">Expense</th>
+				<th>Cost</th>
+				<th class="person">Split</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>Total</td>
+				<td>$60.94</td>
+			</tr>
+			<tr>
+				<td>Tax</td>
+				<td>$ 5.41 </td>
+			</tr>
 
-				<tr>
-					<td>Tip</td>
-					<td>$ 9.14</td>
-				</tr>	
-				<tr>
-					<td>Grand Total</td>
-					<td>$75.49</td>
-				</tr>
-			</tfoot>
+			<tr>
+				<td>Tip</td>
+				<td>$ 9.14</td>
+			</tr>	
+			<tr>
+				<td>Grand Total</td>
+				<td>$75.49</td>
+			</tr>
+		</tfoot>
 
-					<tr>
-					<td>Chicken</td>
-					<td class="price">17.99</td>
-					<td class="holly">Holly</td>
-				</tr>
-				<tr>
-					<td>Steak</td>
-					<td class="price">24.99</td>
-					<td class="allen">Allen</td>
-				</tr>
-				<tr>
-					<td>Coke</td>
-					<td class="price">1.99</td>
-					<td class="allen">Allen</td>
-				</tr>
-				<tr>
-					<td>Beer</td>
-					<td class="price">6.99</td>
-					<td class="holly">Holly</td>
-				</tr>
-				<tr>
-					<td>Fries</td>
-					<td class="price">4.99</td>
-					<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
-				</tr>
-				<tr>
-					<td>Oysters</td>
-					<td class="price">3.99</td>
-					<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
-				</tr>
-		</table>
-
-
-		<br/><br/><h2>Step 3 _ Final Check </h2>
-		<table id = "final_check" border = "1">
-			<thead>
-				<tr>
-					<th id="expense">Name</th>
-					<th class="person">Costs</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr>
-					<td><span class="holly">Holly</span></td>
-					<td>$37.39</td>
-				</tr>
-
-				<tr>
-					<td><span class="allen">Allen</span></td>
-					<td>$39.93</td>
-				</tr>
-			</tbody>
-
-		</table>
-
-		<br/><br/><h1>Individual Check For Allen</h1>
+		<tr>
+			<td>Chicken</td>
+			<td class="price">17.99</td>
+			<td class="holly">Holly</td>
+		</tr>
+		<tr>
+			<td>Steak</td>
+			<td class="price">24.99</td>
+			<td class="allen">Allen</td>
+		</tr>
+		<tr>
+			<td>Coke</td>
+			<td class="price">1.99</td>
+			<td class="allen">Allen</td>
+		</tr>
+		<tr>
+			<td>Beer</td>
+			<td class="price">6.99</td>
+			<td class="holly">Holly</td>
+		</tr>
+		<tr>
+			<td>Fries</td>
+			<td class="price">4.99</td>
+			<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
+		</tr>
+		<tr>
+			<td>Oysters</td>
+			<td class="price">3.99</td>
+			<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
+		</tr>
+	</table>
 
 
-		<table border = "1">
-			<thead>
-				<tr>
-					<th width="100px" id="expense">Expense</th>
-					<th>Cost</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td>Total</td>
-					<td>31.47</td>
-				</tr>	
-				<tr>
-					<td>Tax</td>
-					<td>2.79</td>
-				</tr>
-				<tr>
-					<td>Tip</td>
-					<td>5.66</td>
-				</tr>
-				<tr>
-					<td>Grand Total</td>
-					<td>39.93</td>
-				</tr>
-				
+	<br/><br/><h2>Step 3 _ Final Check </h2>
+	<table id = "final_check" border = "1">
+		<thead>
+			<tr>
+				<th id="expense">Name</th>
+				<th class="person">Costs</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><span class="holly">Holly</span></td>
+				<td>$37.39</td>
+			</tr>
+
+			<tr>
+				<td><span class="allen">Allen</span></td>
+				<td>$39.93</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<br/><br/><h1>Individual Check For Allen</h1>
+
+
+	<table border = "1">
+		<thead>
+			<tr>
+				<th width="100px" id="expense">Expense</th>
+				<th>Cost</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>Total</td>
+				<td>31.47</td>
+			</tr>	
+			<tr>
+				<td>Tax</td>
+				<td>2.79</td>
+			</tr>
+			<tr>
+				<td>Tip</td>
+				<td>5.66</td>
+			</tr>
+			<tr>
+				<td>Grand Total</td>
+				<td>39.93</td>
+			</tr>
+
 
 
 			<tbody>
@@ -167,7 +185,7 @@
 
 
 		<script>
-			
+
 
 
 			//add expense/cost/participants
@@ -179,9 +197,9 @@
 				$("#myTable").append(
 					'<tr><td>'+ expense + '</td><td>' + cost + 
 					'</td><td>'+ name +'</td></tr>'
-				);
+					);
 			})
 
-		</script>
-	</body>
-</html>
+			</script>
+		</body>
+		</html>

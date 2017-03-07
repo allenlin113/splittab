@@ -102,20 +102,3 @@ div#participants_list {
 	background-color: lightgreen;
 	border-radius: 5px;
 }
-
-
-.allen {
-	background-color: #ff4d4d;
-	color: white;
-	float: left;
-	width: 50%;
-	width: 100px;
-	text-align: center;
-}
-
-.holly {
-	background-color: #4d4dff;
-	color: white;
-	float: left;
-	width: 50%;
-}
