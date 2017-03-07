@@ -25,16 +25,23 @@
 	border-radius: 5px;
 	visibility: hidden;
 }
+
+#done_btn{
+	background-color: lightgreen;
+	border-radius: 5px;
+}
+
 </style>
 
 <body>
-	<div id = "bodyBox">
+	<div class = "bodyBox">
+	<h4>----------------------------</h4>
 	<h1 id = "title">SplitTab</h1>
-	<h2>----------------------------</h2>
+	<h4>----------------------------</h4>
 
 	<h3>Restaurant Name</h3>
 	<input type="text" placeholder="Junior's Cheesecake"></input>
-	<h2>----------------------------</h2>
+	<h4>--------------------------------------------------------</h4>
 	<h3>Please Enter Particpants Name</h3>
 
 	<!--<br><input id = "person1" name="input_name" type = "text" placeholder= "Name"><br><br> -->
@@ -42,8 +49,12 @@
 	<div id="testing"></div>
 
 	<button id = "add_participant_btn" type="button">+ Add new person</button>
-	<h2>----------------------------</h2>
+	<h4>--------------------------------------------------------</h4>
+	<button id = "done_btn" type = "button">Done</button>
 	<h4>Thank You</h4>
+
+	
+
 <!--	<button id ="remove_participant_btn" type="button">- Remove</button>
 -->
 
@@ -55,6 +66,8 @@
 		</div>
 	-->
 
+	</div>
+	<div class = "bodyBox" id = "addExpenseRecipt">
 	</div>
 	<script>
 
@@ -109,6 +122,11 @@
 	$(document).on('click', '#remove_btn', function(){
 		$(this).parent().remove();
 	});
+
+	$('#done_btn').click(function(){
+		$('.bodyBox').css('display','none');
+		$('#addExpenseRecipt').css('display','block');
+	})
 
 	function getColor(count) {
 		var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];

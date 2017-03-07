@@ -83,7 +83,7 @@ div#participants_list {
 	visibility: hidden;
 }
 
-#bodyBox {
+.bodyBox {
 	font-family: 'Iceland', cursive;
     border: 1px solid black;
     width: 350px;
@@ -100,3 +100,6 @@ div#participants_list {
 
 }
 
+#addExpenseRecipt{
+	display: none;
+}
