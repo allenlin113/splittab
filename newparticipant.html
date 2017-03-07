@@ -31,7 +31,7 @@
 
 	<h3>Please Enter Particpants Name</h3>
 
-	You<br><input id = "person1" name="input_name" type = "text" placeholder= "Your Name"><br><br>
+	<!--<br><input id = "person1" name="input_name" type = "text" placeholder= "Name"><br><br> -->
 
 	<div id="testing"></div>
 
@@ -41,9 +41,10 @@
 
 
 	<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
-		<div id = "participants_list">
-		</div>
+
 	</span>
+			<div id = "participants_list">
+		</div>
 
 	<script>
 
@@ -53,8 +54,8 @@
 	$('#add_participant_btn').click(function(){
 
 		count += 1;
-		var name = 'Person ' + count;
-		$("#testing").append('<div>'+name+'<br><input placeholder = "Name"></input><br><br><div>');
+		//var name = 'Person ' + count;
+		$("#testing").append('<div class = "person"><br><input placeholder = "Name"></input><span id = "remove_btn" class="glyphicon glyphicon-remove-sign" style = "color:red;" aria-hidden="true"></span><br><br><div>');
 		$("#testing :last-child input").focus();
 		$('#remove_participant_btn').css("visibility", "visible");
 		
@@ -83,18 +84,27 @@
 
 
 	$("#add_participant").click(function(){
-		$("div#participants_list").css("visibility","visible");
-		console.log("y");
+		if($("div#participants_list").css("visibility") == 'visible'){
+			$("div#participants_list").css('visibility','hidden');
+		}else{
+			$("div#participants_list").css('visibility','visible');
+		}
+		
 	});
 
 	$(document).on('click', '.participant_option', function(){
 		$(this).toggleClass('select');
 	});
 
+	$(document).on('click', '#remove_btn', function(){
+		$(this).parent().remove();
+	});
+
 	function getColor(count) {
 		var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
 		return colors[count % 6];
 	}
+
 
 	</script>
 </body>
