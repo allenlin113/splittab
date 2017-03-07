@@ -16,6 +16,61 @@
 .person:hover #remove_btn {
 	visibility: visible;
 }
+
+
+/*Add Expense Stylesheet*/
+
+
+#add_btn {
+	border-radius: 5px;
+	background-color: lightblue;
+}
+
+#grandTotal {
+	font-style: bold;
+}
+
+.price {
+	text-align: center;
+	font-size: 14px;
+}
+
+tfoot {
+	background-color: grey;
+	color: white;
+}
+
+tfoot #btn_row {
+	background-color: black;
+}
+
+.delete_btn {
+	border-radius: 5px;
+	background-color: salmon;
+	color: white;
+	position: absolute;
+	margin-left: 104px;
+	margin-top: -10px;
+	font-size: 12px;
+}
+
+.delete_btn_wrapper {
+	position: relative;
+}
+
+.delete_btn {
+	visibility: hidden;
+	 -webkit-transition: visibility .05s;
+	 transition: visibility .05s;
+}
+
+tr:hover .delete_btn {
+	visibility: visible;
+}
+
+.delete_btn:hover .delete_btn{
+	visibility: visible;
+}
 </style>
 
 <body>
@@ -44,7 +99,51 @@
 		<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>
 		<div id = "participants_list"></div>
 
+
+		<!--add Expense Table-->
+
+	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 47px;" onchange="calculateAll()"/>
+	<br>
+	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 46px;" onchange="calculateAll()"/>
+	<br><br>
+
+	<table border = "1" id = "myTable">
+		<thead>
+			<tr>
+				<th width="100px" id="expense">Expense</th>
+				<th>Cost</th>
+				<th class="person">Split</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr id="btn_row">
+				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td><div id="total">0.00</div></td>
+			</tr>
+			<tr>
+				<td>Tax</td>
+				<td><div id="tax">0.00</div></td>
+			</tr>
+
+			<tr>
+				<td>Tip</td>
+				<td><div id="tip">0.00</div></td>
+			</tr>	
+			<tr>
+				<td>Grand Total</td>
+				<td><div id="grandTotal">$0.00</div></td>
+			</tr>
+		</tfoot>
+
+		<tbody>
+		</tbody>
+	</table>
+
 	</div>
+
 	<script>
 
 	//ENTER PARTICIPANT PAGE
@@ -95,6 +194,83 @@
 	$(document).on('click', '.participants_list_name', function(){
 		$(this).toggleClass('select');
 	});
+
+
+ /******** Add Expense functions ********/
+
+ 	//add expense/cost/participants
+			$("#add_btn").click(function(){
+				$("#myTable").append(
+					'<tr><td><input type="text" placeholder="Burger"></td>'
+					+
+					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
+					+
+					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">Delete</button></div></td></tr>'
+					);
+			});
+
+			//Calculates all four rows of tfoot
+			function calculateAll() {
+				calculateSum();
+				calculateTax();
+				calculateTip();
+				calculateGrandTotal();	
+			}
+
+			//Calculates the sum of tbody
+			function calculateSum() {
+				var sum=0;
+
+				$(".price").each(function() {
+					var value = $(this).val();
+					if (!isNaN(value) && value.length !=0) {
+						sum += parseFloat(value);
+					}
+				})
+				sum = sum.toFixed(2);
+
+				$('#total').text(sum);
+			}
+
+			//Takes the tax percent and multiplying it with total sum
+			function calculateTax() {
+				var result = $('#total').text();
+				var tax = $('#taxPercent').val();
+
+				var totalTax = result * (tax * 0.01);
+				totalTax = totalTax.toFixed(2);
+
+				$('#tax').text(totalTax);
+			}
+
+			//Takes the tip percent and multiplies it with the total sum
+			function calculateTip() {
+				var result = $('#total').text();
+				var tip = $('#tipPercent').val();
+
+				var totalTip = result * (tip * 0.01);
+				totalTip = totalTip.toFixed(2);
+
+				$('#tip').text(totalTip);
+			}
+
+			//Adds total sum, tax and tip to get grand total
+			function calculateGrandTotal() {
+				var result = parseFloat($('#total').text());
+				var tax = parseFloat($('#tax').text());
+				var tip = parseFloat($('#tip').text());
+
+				var total = result + tax + tip;
+				total = '$' + total.toFixed(2);
+
+				$('#grandTotal').text(total);
+			}
+
+			function deleteRow(element) {
+				var row = element.parentNode.parentNode.parentNode;
+				row.parentNode.removeChild(row);
+			}
+
 
 
 	</script>
