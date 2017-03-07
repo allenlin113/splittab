@@ -103,3 +103,24 @@ div#participants_list {
 #addExpenseRecipt{
 	display: none;
 }
+
+#add_participant_btn {
+	background-color: lightblue;
+	border-radius: 5px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+#remove_participant_btn {
+	background-color: pink;
+	border-radius: 5px;
+	visibility: hidden;
+}
+
+#done_btn{
+	background-color: lightgreen;
+	border-radius: 5px;
+}
