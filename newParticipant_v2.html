@@ -6,12 +6,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
 </head>
 <style>
 
 #add_participant_btn {
 	background-color: lightblue;
 	border-radius: 5px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 #remove_participant_btn {
@@ -22,14 +28,13 @@
 </style>
 
 <body>
-	
-	<h1>SplitTab</h1>
-	<h2>Create a new Tab</h2>
-	
+	<div id = "bodyBox">
+	<h1 id = "title">SplitTab</h1>
+	<h2>----------------------------</h2>
 
 	<h3>Restaurant Name</h3>
 	<input type="text" placeholder="Junior's Cheesecake"></input>
-
+	<h2>----------------------------</h2>
 	<h3>Please Enter Particpants Name</h3>
 
 	<!--<br><input id = "person1" name="input_name" type = "text" placeholder= "Name"><br><br> -->
@@ -37,16 +42,20 @@
 	<div id="testing"></div>
 
 	<button id = "add_participant_btn" type="button">+ Add new person</button>
+	<h2>----------------------------</h2>
+	<h4>Thank You</h4>
+<!--	<button id ="remove_participant_btn" type="button">- Remove</button>
+-->
 
-	<button id ="remove_participant_btn" type="button">- Remove</button>
+	<!--<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
 
-
-	<span class="glyphicon glyphicon-plus-sign" id = "add_participant" style = "color:green;" aria-hidden="true">
 
 	</span>
 			<div id = "participants_list">
 		</div>
+	-->
 
+	</div>
 	<script>
 
 	var count = 1;
@@ -105,6 +114,8 @@
 		var colors = ['#ff4d4d', '#4d4dff', '#4dff4d', '#ffff4d', '#4dffff', '#ff4dff'];
 		return colors[count % 6];
 	}
+
+
 
 
 	</script>

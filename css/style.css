@@ -83,3 +83,20 @@ div#participants_list {
 	visibility: hidden;
 }
 
+#bodyBox {
+	font-family: 'Iceland', cursive;
+    border: 1px solid black;
+    width: 350px;
+    min-height: 500px;
+    text-align: center;
+    overflow: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#title{
+
+}
+
