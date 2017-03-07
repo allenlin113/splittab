@@ -45,14 +45,14 @@ option{
 div#participants_list {
 }
 
-.participant_option {
+.participants_list_name {
 	width: 75px;
     padding: 6px;
     background-color: whitesmoke;
     color: black;
 }
 
-.participant_option:hover {
+.participants_list_name:hover {
     background-color: lightgray;
 }
 
