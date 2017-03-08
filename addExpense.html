@@ -123,11 +123,12 @@ table tbody tr:hover {
 
 		<script>
 
-		$("tbody tr").click(function () {
+		$(document).on('click', 'tbody tr', function(){
 			$('.selected').removeClass('selected');
 			$(this).addClass("selected");
-			alert("suh dude");
+			alert("sub dude");
 		});
+
 
 			//add expense/cost/participants
 			$("#add_btn").click(function(){
@@ -137,6 +138,7 @@ table tbody tr:hover {
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+'<td></td>'
 					//'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this);">Delete</button></div></td></tr>'
+					+'</tr>'
 					);
 			});
 
