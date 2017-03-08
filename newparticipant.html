@@ -48,29 +48,9 @@ tfoot #btn_row {
 	border-radius: 5px;
 	background-color: salmon;
 	color: white;
-	position: absolute;
-	margin-left: 104px;
-	margin-top: -10px;
-	font-size: 12px;
+	font-size: 8px;
 }
 
-.delete_btn_wrapper {
-	position: relative;
-}
-
-.delete_btn {
-	visibility: hidden;
-	 -webkit-transition: visibility .05s;
-	 transition: visibility .05s;
-}
-
-tr:hover .delete_btn {
-	visibility: visible;
-}
-
-.delete_btn:hover .delete_btn{
-	visibility: visible;
-}
 </style>
 
 <body>
@@ -80,7 +60,7 @@ tr:hover .delete_btn {
 		<h4>----------------------------</h4>
 
 		<h3>Restaurant Name</h3>
-		<input type="text" placeholder="Junior's Cheesecake" value = "" id ="restaurant_name"></input>
+		<input type="text" placeholder="Junior's Cheesecake" value="" id ="restaurant_name" autofocus></input>
 		<h4>--------------------------------------------------------</h4>
 		<h3>Please Enter Particpants Name</h3>
 
@@ -96,15 +76,16 @@ tr:hover .delete_btn {
 		<h4>----------------------------</h4>
 		<h1 id ="restaurant"></h1>
 		<h4>----------------------------</h4>
-	<!--	<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span> -->
+		<!--	<span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span> -->
 		<div id = "participants_list"></div>
 
 
+		
 		<!--add Expense Table-->
 
-	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 47px;" onchange="calculateAll()"/>
+	Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" onchange="calculateAll()"/>
 	<br>
-	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 46px;" onchange="calculateAll()"/>
+	Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" onchange="calculateAll()"/>
 	<br><br>
 
 	<table border = "1" id = "myTable">
@@ -112,7 +93,7 @@ tr:hover .delete_btn {
 			<tr>
 				<th width="100px" id="expense">Expense</th>
 				<th>Cost</th>
-				<th class="person">Split</th>
+				<th class="person">Options</th>
 			</tr>
 		</thead>
 		<tfoot>
@@ -211,13 +192,13 @@ tr:hover .delete_btn {
 					+
 					'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>'
 					+
-					'<div id = "participants_list"></div></span>'
+					'<div id = "participants_list"></div>'
+					+
+					'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
 					+ 
 					'<div class = "participants_selected"></div>'
 					+
-					'<td>'
-					+
-					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">Delete</button></div></td></tr>'
+					'</td></tr>'
 					);
 			});
 
@@ -283,7 +264,7 @@ tr:hover .delete_btn {
 			}
 
 			function deleteRow(element) {
-				var row = element.parentNode.parentNode.parentNode;
+				var row = element.parentNode.parentNode;
 				row.parentNode.removeChild(row);
 			}
 
