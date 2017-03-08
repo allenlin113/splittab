@@ -14,6 +14,16 @@
 	background-color: lightblue;
 }
 
+#minus_btn {
+	border-radius: 5px;
+	background-color: salmon;
+	color: black;
+}
+
+#minus_btn:disabled {
+	opacity: .8;
+}
+
 #grandTotal {
 	font-style: bold;
 }
@@ -48,8 +58,8 @@ tfoot #btn_row {
 
 .delete_btn {
 	visibility: visible;
-	 -webkit-transition: visibility .05s;
-	 transition: visibility .05s;
+	-webkit-transition: visibility .05s;
+	transition: visibility .05s;
 }
 
 tr:hover .delete_btn {
@@ -59,6 +69,11 @@ tr:hover .delete_btn {
 .delete_btn:hover .delete_btn{
 	visibility: visible;
 }
+
+table tbody tr:hover {
+    cursor: pointer;
+}
+
 </style>
 
 <body>
@@ -82,31 +97,37 @@ tr:hover .delete_btn {
 			<tr id="btn_row">
 				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button>
 					<button id = "minus_btn" type="button" disabled>Remove Expense</button></td></td>
-			</tr>
-			<tr>
-				<td>Total</td>
-				<td><div id="total">0.00</div></td>
-			</tr>
-			<tr>
-				<td>Tax</td>
-				<td><div id="tax">0.00</div></td>
-			</tr>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td><div id="total">0.00</div></td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td><div id="tax">0.00</div></td>
+				</tr>
 
-			<tr>
-				<td>Tip</td>
-				<td><div id="tip">0.00</div></td>
-			</tr>	
-			<tr>
-				<td>Grand Total</td>
-				<td><div id="grandTotal">$0.00</div></td>
-			</tr>
-		</tfoot>
+				<tr>
+					<td>Tip</td>
+					<td><div id="tip">0.00</div></td>
+				</tr>	
+				<tr>
+					<td>Grand Total</td>
+					<td><div id="grandTotal">$0.00</div></td>
+				</tr>
+			</tfoot>
 
-		<tbody>
-		</tbody>
-	</table>
+			<tbody>
+			</tbody>
+		</table>
 
-	<script>
+		<script>
+
+		$("tbody tr").click(function () {
+			$('.selected').removeClass('selected');
+			$(this).addClass("selected");
+			alert("suh dude");
+		});
 
 			//add expense/cost/participants
 			$("#add_btn").click(function(){
@@ -114,8 +135,8 @@ tr:hover .delete_btn {
 					'<tr><td><input type="text" placeholder="Burger"></td>'
 					+
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
-					+
-					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this);">Delete</button></div></td></tr>'
+					+'<td></td>'
+					//'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this);">Delete</button></div></td></tr>'
 					);
 			});
 
@@ -181,6 +202,6 @@ tr:hover .delete_btn {
 				row.parentNode.removeChild(row);
 				calculateAll();
 			}
-	</script>
-</body>
-</html>
+			</script>
+		</body>
+		</html>
