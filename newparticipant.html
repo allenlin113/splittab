@@ -24,6 +24,17 @@
 #add_btn {
 	border-radius: 5px;
 	background-color: lightblue;
+	color: black;
+}
+
+#minus_btn {
+	border-radius: 5px;
+	background-color: salmon;
+	color: black;
+}
+
+#minus_btn:disabled {
+    opacity: 0.8;
 }
 
 #grandTotal {
@@ -93,12 +104,13 @@ tfoot #btn_row {
 			<tr>
 				<th width="100px" id="expense">Expense</th>
 				<th>Cost</th>
-				<th class="person">Options</th>
+				<th class="person">Split</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr id="btn_row">
-				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
+				<td colspan="3"style="text-align:right;"><button id="add_btn" type="button">Add Expense</button>
+					<button id = "minus_btn" type="button" disabled>Remove Expense</button></td>
 			</tr>
 			<tr>
 				<td>Total</td>
@@ -150,7 +162,6 @@ tfoot #btn_row {
 			var names = [];
 			$("#person_list .person_name").each(function() {
 				names.push($(this).val());
-				//$('#participants_list').append('<div class = "participants_list_name">'+$(this).val()+'</div>');
 			})
 
 			names.sort();
@@ -172,8 +183,8 @@ tfoot #btn_row {
 		}
 
 	});
-	$("#add_participant").click(function(){
-			
+
+	$("#add_participant").click(function(){		
 	});
 
 	$(document).on('click', '.participants_list_name', function(){
@@ -193,8 +204,7 @@ tfoot #btn_row {
 					'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>'
 					+
 					'<div id = "participants_list"></div>'
-					+
-					'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
+					//'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
 					+ 
 					'<div class = "participants_selected"></div>'
 					+
@@ -266,6 +276,7 @@ tfoot #btn_row {
 			function deleteRow(element) {
 				var row = element.parentNode.parentNode;
 				row.parentNode.removeChild(row);
+				calculateAll();
 			}
 
 

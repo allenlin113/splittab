@@ -47,7 +47,7 @@ tfoot #btn_row {
 }
 
 .delete_btn {
-	visibility: hidden;
+	visibility: visible;
 	 -webkit-transition: visibility .05s;
 	 transition: visibility .05s;
 }
@@ -80,7 +80,8 @@ tr:hover .delete_btn {
 		</thead>
 		<tfoot>
 			<tr id="btn_row">
-				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button></td>
+				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button>
+					<button id = "minus_btn" type="button" disabled>Remove Expense</button></td></td>
 			</tr>
 			<tr>
 				<td>Total</td>
@@ -114,7 +115,7 @@ tr:hover .delete_btn {
 					+
 					'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
 					+
-					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">Delete</button></div></td></tr>'
+					'<td><div class="delete_btn_wrapper"><button class="delete_btn" type="button" onclick="deleteRow(this);">Delete</button></div></td></tr>'
 					);
 			});
 
@@ -178,6 +179,7 @@ tr:hover .delete_btn {
 			function deleteRow(element) {
 				var row = element.parentNode.parentNode.parentNode;
 				row.parentNode.removeChild(row);
+				calculateAll();
 			}
 	</script>
 </body>
