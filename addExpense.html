@@ -21,7 +21,7 @@
 }
 
 #minus_btn:disabled {
-	opacity: .8;
+	opacity: .85;
 }
 
 #grandTotal {
@@ -70,8 +70,13 @@ tr:hover .delete_btn {
 	visibility: visible;
 }
 
-table tbody tr:hover {
+tr:hover {
     cursor: pointer;
+    background-color: lightgrey;
+}
+
+tr.selected {
+	background-color: salmon;
 }
 
 </style>
@@ -96,7 +101,7 @@ table tbody tr:hover {
 		<tfoot>
 			<tr id="btn_row">
 				<td colspan="3"style="text-align:right;"><button id = "add_btn" type = "button">Add Expense</button>
-					<button id = "minus_btn" type="button" disabled>Remove Expense</button></td></td>
+					<button id = "minus_btn" type="button" onclick="deleteRow()" disabled>Remove Expense</button></td></td>
 				</tr>
 				<tr>
 					<td>Total</td>
@@ -123,10 +128,16 @@ table tbody tr:hover {
 
 		<script>
 
-		$(document).on('click', 'tbody tr', function(){
-			$('.selected').removeClass('selected');
-			$(this).addClass("selected");
-			alert("sub dude");
+		$(document).on('click', 'table tbody tr', function(){
+
+			if ($(this).hasClass('selected')) {
+				$(this).removeClass('selected');
+			}
+			else {
+				//$('.selected').removeClass('selected');
+				$('#minus_btn').prop("disabled", false);
+				$(this).addClass("selected");
+			}	
 		});
 
 
@@ -199,9 +210,8 @@ table tbody tr:hover {
 				$('#grandTotal').text(total);
 			}
 
-			function deleteRow(element) {
-				var row = element.parentNode.parentNode.parentNode;
-				row.parentNode.removeChild(row);
+			function deleteRow() {
+				$('.selected').remove();
 				calculateAll();
 			}
 			</script>
