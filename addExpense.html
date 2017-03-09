@@ -70,7 +70,7 @@ tr:hover .delete_btn {
 	visibility: visible;
 }
 
-tr:hover {
+tbody tr:hover {
     cursor: pointer;
     background-color: lightgrey;
 }
@@ -138,6 +138,10 @@ tr.selected {
 				$('#minus_btn').prop("disabled", false);
 				$(this).addClass("selected");
 			}	
+
+			if ($(".selected").length == 0) {
+				$('#minus_btn').prop("disabled", true);
+			}
 		});
 
 
