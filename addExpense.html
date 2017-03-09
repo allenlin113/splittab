@@ -79,6 +79,10 @@ tr.selected {
 	background-color: salmon;
 }
 
+tr.selected:hover {
+	background-color: salmon;
+}
+
 </style>
 
 <body>
@@ -216,6 +220,10 @@ tr.selected {
 
 			function deleteRow() {
 				$('.selected').remove();
+
+				if ($(".selected").length == 0) {
+					$('#minus_btn').prop("disabled", true);
+					}
 				calculateAll();
 			}
 			</script>
