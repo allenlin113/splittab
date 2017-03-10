@@ -126,7 +126,7 @@ tr.selected:hover {
 						<button id = "minus_btn" type="button" onclick="deleteRow()" disabled>Remove Expense</button></td>
 					</tr>
 					<tr>
-						<td>Total</td>
+						<td>Sub Total</td>
 						<td><div id="total">0.00</div></td>
 					</tr>
 					<tr>
@@ -295,7 +295,7 @@ tr.selected:hover {
 				calculateAll();
 			}
 
-			$(document).on('click', 'table tbody tr', function(){
+			$(document).on('dblclick', 'table tbody tr', function(){
 
 				if ($(this).hasClass('selected')) {
 					$(this).removeClass('selected');
