@@ -68,6 +68,10 @@ div#participants_list {
 	visibility: hidden;
 }
 
+table {
+  width: 350px;
+}
+
 .bodyBox {
 	font-family: 'Iceland', cursive;
     border: 1px solid black;

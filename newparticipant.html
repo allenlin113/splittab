@@ -155,7 +155,7 @@ tr.selected:hover {
 	//ENTER PARTICIPANT PAGE
 
 	$('#new_person_btn').click(function(){
-		$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true"></span><br><br><div>');
+		$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br><div>');
 		$("#person_list :last-child input").focus();
 	});
 
@@ -214,7 +214,7 @@ tr.selected:hover {
  			+
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
- 			'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true"></span>'
+ 			'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true" role="button"></span>'
  			+
  			'<div id = "participants_list"></div>'
 					//'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
