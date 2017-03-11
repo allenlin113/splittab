@@ -20,13 +20,10 @@ $('#done_btn').click(function(){
 
 			//Alphabetize list
 			var names = [];
-			$("#person_list .person_name").each(function() {
+			$("#person_list .person_name").each(	function() {
 				names.push($(this).val());
-			})
-
+			})			
 			names.sort();
-
-		
 		}
 	})
 
@@ -43,7 +40,7 @@ $('#done_btn').click(function(){
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
  			'<td></td></tr>'
-			);
+ 			);
  	});
 
  	
@@ -118,19 +115,19 @@ function deleteRow() {
 	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
 	*/
 
-$(document).on('dblclick', 'table tbody tr', function(){
+	$(document).on('dblclick', 'table tbody tr', function(){
 
-	if ($(this).hasClass('selected')) {
-		$(this).removeClass('selected');
-	}
-	else {
-		$('#remove_expense_btn').prop("disabled", false);
-		$('.selected').removeClass('selected');
-		$(this).addClass("selected");
-	}	
+		if ($(this).hasClass('selected')) {
+			$(this).removeClass('selected');
+		}
+		else {
+			$('#remove_expense_btn').prop("disabled", false);
+			$('.selected').removeClass('selected');
+			$(this).addClass("selected");
+		}	
 
-	if ($(".selected").length == 0) {
-		$('#remove_expense_btn').prop("disabled", true);
-	}
-});
+		if ($(".selected").length == 0) {
+			$('#remove_expense_btn').prop("disabled", true);
+		}
+	});
 
