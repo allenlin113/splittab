@@ -3,202 +3,252 @@
 
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-	<script type = "text/javascript" href = "scripts/javascript.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
 </head>
 <style>
 
-.allen {
-	background-color: #ff4d4d;
-	color: white;
-	float: left;
-	width: 50%;
-	width: 100px;
-	text-align: center;
-}
-
-.holly {
-	background-color: #4d4dff;
-	color: white;
-	float: left;
-	width: 50%;
-}
+/* Testing Styles*/
 
 </style>
+
 <body>
-	
-	<h1>SplitTab</h1>
+	<div class = "bodyBox">
+		<h4>----------------------------</h4>
+		<h1 id = "title">SplitTab</h1>
+		<h4>----------------------------</h4>
+
+		<h3>Restaurant Name</h3>
+		<input type="text" placeholder="Junior's Cheesecake" value="" id ="restaurant_name" autofocus></input>
+		<h4>--------------------------------------------------------</h4>
+		<h3>Please Enter Particpants Name</h3>
+
+		<div id="person_list"></div>
+
+		<button id = "new_person_btn" type="button">+ Add new person</button>
+		<h4>--------------------------------------------------------</h4>
+		<button id = "done_btn" type="button">Done</button>
+		<h4>Thank You</h4>
+	</div>
+
+	<div class = "bodyBox" id = "addExpenseRecipt">
+		<h4>----------------------------</h4>
+		<h1 id ="restaurant"></h1>
+		<h4>----------------------------</h4>
+		<div id = "participants_list"></div>
 
 
-
-	<h2>Step 2 _ prompt Expenses/Costs/Participants</h2>
-	<br/>
-	<input id = "input_expense" type="text" placeholder= "Expense"><br/>
-	<input id = "input_cost" type = "text" placeholder= "Cost"><br/>
-	<select id = "select_name">
 		
-	</select><br>
-	<button id = "add_btn" type = "button">Add Expense</button>
+		<!--Add Expense Table-->
 
-	<br/><br/>
+		Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" onchange="calculateAll()"/>
+		<br>
+		Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" onchange="calculateAll()"/>
+		<br><br>
 
-	Tax % <input type="text" name="tax" size="10px" value="8.875"/>
-
-	Tip % <input type="text" name="tip" size="10px" value="15"/>
-
-
-	<table border = "1" id = "myTable">
-		<thead>
-			<tr>
-				<th width="100px" id="vexpense">Expense</th>
-				<th>Cost</th>
-				<th class="person">Split</th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td>Total</td>
-				<td>$60.94</td>
-			</tr>
-			<tr>
-				<td>Tax</td>
-				<td>$ 5.41 </td>
-			</tr>
-
-			<tr>
-				<td>Tip</td>
-				<td>$ 9.14</td>
-			</tr>	
-			<tr>
-				<td>Grand Total</td>
-				<td>$75.49</td>
-			</tr>
-		</tfoot>
-
-		<tr>
-			<td>Chicken</td>
-			<td class="price">17.99</td>
-			<td class="holly">Holly</td>
-		</tr>
-		<tr>
-			<td>Steak</td>
-			<td class="price">24.99</td>
-			<td class="allen">Allen</td>
-		</tr>
-		<tr>
-			<td>Coke</td>
-			<td class="price">1.99</td>
-			<td class="allen">Allen</td>
-		</tr>
-		<tr>
-			<td>Beer</td>
-			<td class="price">6.99</td>
-			<td class="holly">Holly</td>
-		</tr>
-		<tr>
-			<td>Fries</td>
-			<td class="price">4.99</td>
-			<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
-		</tr>
-		<tr>
-			<td>Oysters</td>
-			<td class="price">3.99</td>
-			<td><span class="allen">Allen</span><span class="holly">Holly</span></td>
-		</tr>
-	</table>
-
-
-	<br/><br/><h2>Step 3 _ Final Check </h2>
-	<table id = "final_check" border = "1">
-		<thead>
-			<tr>
-				<th id="expense">Name</th>
-				<th class="person">Costs</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<tr>
-				<td><span class="holly">Holly</span></td>
-				<td>$37.39</td>
-			</tr>
-
-			<tr>
-				<td><span class="allen">Allen</span></td>
-				<td>$39.93</td>
-			</tr>
-		</tbody>
-
-	</table>
-
-	<br/><br/><h1>Individual Check For Allen</h1>
-
-
-	<table border = "1">
-		<thead>
-			<tr>
-				<th width="100px" id="expense">Expense</th>
-				<th>Cost</th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td>Total</td>
-				<td>31.47</td>
-			</tr>	
-			<tr>
-				<td>Tax</td>
-				<td>2.79</td>
-			</tr>
-			<tr>
-				<td>Tip</td>
-				<td>5.66</td>
-			</tr>
-			<tr>
-				<td>Grand Total</td>
-				<td>39.93</td>
-			</tr>
-
-
-
-			<tbody>
+		<table border = "1" id = "myTable">
+			<thead>
 				<tr>
-					<td>Steak</td>
-					<td>$24.99</td>
+					<th width="100px" id="expense">Expense</th>
+					<th>Cost</th>
+					<th class="person">Split</th>
 				</tr>
-				<tr>
-					<td>Coke</td>
-					<td>$1.99</td>
-				</tr>
-				<tr>
-					<td>Fries</td>
-					<td>$2.50</td>
-				</tr>
-				<tr>
-					<td>Oyster</td>
-					<td>$2.00</td>
-				</tr>
-			</tbody>
+			</thead>
+			<tfoot>
+				<tr id="btn_row">
+					<td colspan="3"style="text-align:right;"><button id="add_expense_btn" type="button">Add Expense</button>
+						<button id = "remove_expense_btn" type="button" onclick="deleteRow()" disabled>Remove Expense</button></td>
+					</tr>
+					<tr>
+						<td>Subtotal</td>
+						<td><div id="subtotal">0.00</div></td>
+					</tr>
+					<tr>
+						<td>Tax</td>
+						<td><div id="tax">0.00</div></td>
+					</tr>
 
-		</table>
+					<tr>
+						<td>Tip</td>
+						<td><div id="tip">0.00</div></td>
+					</tr>	
+					<tr>
+						<td>Grand Total</td>
+						<td><div id="grandTotal">$0.00</div></td>
+					</tr>
+				</tfoot>
 
+				<tbody>
+				</tbody>
+			</table>
 
+		</div>
 
 		<script>
 
+		/* Page One Script */
 
+		$('#new_person_btn').click(function(){
+			$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br><div>');
+			$("#person_list :last-child input").focus();
+		});
 
-			//add expense/cost/participants
-			$("#add_btn").click(function(){
-				var expense = $("#input_expense").val();
-				var cost = $("#input_cost").val();
-				var name = $("#select_name").val();
-				console.log(name);
-				$("#myTable").append(
-					'<tr><td>'+ expense + '</td><td>' + cost + 
-					'</td><td>'+ name +'</td></tr>'
-					);
+		$(document).on('click', '#remove_btn', function(){
+			$(this).parent().remove();
+		});
+
+		$('#done_btn').click(function(){
+			if(!$('#restaurant_name').val()){
+				alert("You forgot to input Restaurant name!");
+			}else{
+				$('.bodyBox').css('display','none');
+				$('#addExpenseRecipt').css('display','block');
+				$('#restaurant').html( $('#restaurant_name').val());
+
+			//Alphabetize list
+			var names = [];
+			$("#person_list .person_name").each(function() {
+				names.push($(this).val());
 			})
+
+			names.sort();
+
+			$.each(names, function(i, val) {
+				$('#participants_list').append('<div class="participants_list_name">'+ val +'</div>');
+			})
+		}
+	})
+
+
+		/* Page Two Script */
+
+		$(document).on('click', '#add_participant', function(){
+			if($("div#participants_list").css("visibility") == 'visible'){
+				$("div#participants_list").css('visibility','hidden');
+			}else{
+				$("div#participants_list").css('visibility','visible');
+			}
+
+		});
+
+		$("#add_participant").click(function(){		
+		});
+
+		$(document).on('click', '.participants_list_name', function(){
+			$(this).toggleClass('select');
+		});
+
+
+		/******** Add Expense functions ********/
+
+ 	//add expense/cost/participants
+ 	$("#add_expense_btn").click(function(){
+ 		$("#myTable").append(
+ 			'<tr><td><input type="text" placeholder="Burger"></td>'
+ 			+
+ 			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
+ 			+
+ 			'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true" role="button"></span>'
+ 			+
+ 			'<div id = "participants_list"></div>'
+					//'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
+					+ 
+					'<div class = "participants_selected"></div>'
+					+
+					'</td></tr>'
+					);
+ 	});
+
+ 	$(document).on('click', '.participants_list_name.select', function(){
+ 		
+ 	});
+ 	
+			//Calculates all four rows of tfoot
+			function calculateAll() {
+				calculateSum();
+				calculateTax();
+				calculateTip();
+				calculateGrandTotal();	
+			}
+
+			//Calculates the sum of tbody
+			function calculateSum() {
+				var sum=0;
+
+				$(".price").each(function() {
+					var value = $(this).val();
+					if (!isNaN(value) && value.length !=0) {
+						sum += parseFloat(value);
+					}
+				})
+				sum = sum.toFixed(2);
+
+				$('#subtotal').text(sum);
+			}
+
+			//Takes the tax percent and multiplying it with total sum
+			function calculateTax() {
+				var result = $('#subtotal').text();
+				var tax = $('#taxPercent').val();
+
+				var totalTax = result * (tax * 0.01);
+				totalTax = totalTax.toFixed(2);
+
+				$('#tax').text(totalTax);
+			}
+
+			//Takes the tip percent and multiplies it with the total sum
+			function calculateTip() {
+				var result = $('#subtotal').text();
+				var tip = $('#tipPercent').val();
+
+				var totalTip = result * (tip * 0.01);
+				totalTip = totalTip.toFixed(2);
+
+				$('#tip').text(totalTip);
+			}
+
+			//Adds total sum, tax and tip to get grand total
+			function calculateGrandTotal() {
+				var result = parseFloat($('#subtotal').text());
+				var tax = parseFloat($('#tax').text());
+				var tip = parseFloat($('#tip').text());
+
+				var total = result + tax + tip;
+				total = '$' + total.toFixed(2);
+
+				$('#grandTotal').text(total);
+			}
+
+			function deleteRow() {
+				$('.selected').remove();
+
+				if ($(".selected").length == 0) {
+					$('#remove_expense_btn').prop("disabled", true);
+				}
+				calculateAll();
+			}
+			
+			/*  On doubleclick, selects tr, assigns it class selected and highlights row red
+				If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
+			*/
+
+			$(document).on('dblclick', 'table tbody tr', function(){
+
+				if ($(this).hasClass('selected')) {
+					$(this).removeClass('selected');
+				}
+				else {
+					$('#remove_expense_btn').prop("disabled", false);
+					$(this).addClass("selected");
+				}	
+
+				if ($(".selected").length == 0) {
+					$('#remove_expense_btn').prop("disabled", true);
+				}
+			});
 
 			</script>
 		</body>

@@ -11,6 +11,89 @@
   color: grey;
 }
 
+
+/* Page One */
+
+.bodyBox {
+  font-family: 'Iceland', cursive;
+  border: 1px solid black;
+  width: 350px;
+  min-height: 500px;
+  text-align: center;
+  overflow: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  overflow-x: hidden;
+}
+
+#new_person_btn {
+  background-color: lightblue;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+#done_btn{
+  background-color: lightgreen;
+  border-radius: 5px;
+}
+
+#remove_btn {
+  visibility: hidden;
+}
+
+.person:hover #remove_btn {
+  visibility: visible;
+}
+
+
+/* Page Two */
+
+#addExpenseRecipt{
+  display: none;
+}
+
+#add_expense_btn {
+  border-radius: 5px;
+  background-color: lightblue;
+  color: black;
+}
+
+#remove_expense_btn {
+  border-radius: 5px;
+  background-color: salmon;
+  color: black;
+}
+
+#remove_expense_btn:disabled {
+  opacity: .85;
+}
+
+
+/* Table */
+
+table {
+  width: 349px;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+tr.selected {
+  background-color: salmon;
+}
+
+tr.selected:hover {
+  background-color: salmon;
+}
+
 th, td {
   text-align: center;
   vertical-align: center;
@@ -36,74 +119,46 @@ th:nth-child(3), td:nth-child(3) {
 	width: 100px;
 }
 
-option{
-	background : transparent;
-	width: 100px;
-	text-align: center;
+tfoot {
+  background-color: grey;
+  color: white;
+}
+
+tfoot #btn_row {
+  background-color: black;
 }
 
 div#participants_list {
   visibility: hidden;
 }
 
+#grandTotal {
+  font-style: bold;
+}
+
+.price {
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/* Participants List */
+
 .participants_list_name {
 	width: 75px;
-    padding: 6px;
-    background-color: whitesmoke;
-    color: black;
+  padding: 6px;
+  background-color: whitesmoke;
+  color: black;
 }
 
 .participants_list_name:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .select{
 	background-color: #70e25f;
 }
+
 .select:hover{
 	background-color: #70e25f;	
-}
-
-.setVisible{
-	visibility: hidden;
-}
-
-table {
-  width: 350px;
-}
-
-.bodyBox {
-	font-family: 'Iceland', cursive;
-    border: 1px solid black;
-    width: 350px;
-    min-height: 500px;
-    text-align: center;
-    overflow: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-}
-
-#title{
-
-}
-
-#addExpenseRecipt{
-	display: none;
-}
-
-#new_person_btn {
-	background-color: lightblue;
-	border-radius: 5px;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-
-#done_btn{
-	background-color: lightgreen;
-	border-radius: 5px;
 }
