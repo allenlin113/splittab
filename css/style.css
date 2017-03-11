@@ -141,6 +141,13 @@ div#participants_list {
   font-size: 14px;
 }
 
+tfoot {
+  visibility: hidden;
+}
+
+#btn_row {
+  visibility: visible;
+}
 
 /* Participants List */
 
