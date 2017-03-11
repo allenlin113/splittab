@@ -35,7 +35,7 @@ $('#done_btn').click(function(){
 
 
 /******** Add Expense functions ********/
- 	//add expense/cost/participants
+ 	//add expense/cost
  	$("#add_expense_btn").click(function(){
  		$("#myTable").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'

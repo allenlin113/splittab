@@ -129,10 +129,6 @@ th:nth-child(3), td:nth-child(3) {
 	width: 100px;
 }
 
-div#participants_list {
-  visibility: hidden;
-}
-
 #grandTotal {
   font-style: bold;
 }
@@ -150,27 +146,6 @@ tfoot {
   visibility: visible;
 }
 
-/* Participants List */
-
-.participants_list_name {
-	width: 75px;
-  padding: 6px;
-  background-color: whitesmoke;
-  color: black;
-}
-
-.participants_list_name:hover {
-  background-color: lightgray;
-}
-
-.select{
-	background-color: #70e25f;
-}
-
-.select:hover{
-	background-color: #70e25f;	
-}
-/*test*/
 input {
   border-color: inherit;
   box-shadow: none;
