@@ -26,9 +26,7 @@ $('#done_btn').click(function(){
 
 			names.sort();
 
-			$.each(names, function(i, val) {
-				$('#participants_list').append('<div class="participants_list_name">'+ val +'</div>');
-			})
+		
 		}
 	})
 
@@ -111,7 +109,7 @@ function deleteRow() {
 
 	if ($(".selected").length == 0) {
 		$('#remove_expense_btn').prop("disabled", true);
-		$("div#participants_list").css('visibility','hidden');
+
 	}
 	calculateAll();
 }
@@ -124,22 +122,15 @@ $(document).on('dblclick', 'table tbody tr', function(){
 
 	if ($(this).hasClass('selected')) {
 		$(this).removeClass('selected');
-		$("div#participants_list").css('visibility','hidden');
 	}
 	else {
 		$('#remove_expense_btn').prop("disabled", false);
 		$('.selected').removeClass('selected');
 		$(this).addClass("selected");
-		$("div#participants_list").css('visibility','visible');
 	}	
 
 	if ($(".selected").length == 0) {
 		$('#remove_expense_btn').prop("disabled", true);
-
-		$("div#participants_list").css('visibility','hidden');
 	}
 });
 
-$(document).on('click', '.participants_list_name', function(){
-	$(this).toggleClass('select');
-});
