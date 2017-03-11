@@ -9,6 +9,9 @@ $(document).on('click', '#remove_btn', function(){
 	$(this).parent().remove();
 });
 
+
+var names = [];
+
 $('#done_btn').click(function(){
 	if(!$('#restaurant_name').val()){
 		alert("You forgot to input Restaurant name!");
@@ -19,7 +22,6 @@ $('#done_btn').click(function(){
 		$('#restaurant').html( $('#restaurant_name').val());
 
 			//Alphabetize list
-			var names = [];
 			$("#person_list .person_name").each(	function() {
 				names.push($(this).val());
 			})			
@@ -34,12 +36,29 @@ $('#done_btn').click(function(){
 /******** Add Expense functions ********/
  	//add expense/cost
  	$("#add_expense_btn").click(function(){
+
+ 		/* TESTING */
+
+ 		var selectList = document.createElement("select");
+ 		selectList.class = "names_list";
+
+		//Create and append the options
+		for (var i = 0; i < names.length; i++) {
+			var option = document.createElement("option");
+			option.value = names[i];
+			option.text = names[i];
+			selectList.appendChild(option);
+	}
+		/*Testing */ 
+
  		$("#myTable").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
  			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
- 			'<td></td></tr>'
+ 			'<td>');
+ 		$("#myTable").append(selectList);
+ 		$("#myTable").append( 			'</td></tr>'
  			);
  	});
 
