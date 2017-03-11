@@ -79,6 +79,7 @@
 
 table {
   width: 349px;
+  border: transparent;
 }
 
 tbody tr:hover {
@@ -100,8 +101,7 @@ th, td {
 }
 
 th {
-	background-color: black;
-	color: white;
+	color: black;
 }
 
 th:nth-child(1), td:nth-child(1) {  
@@ -117,15 +117,6 @@ th:nth-child(2), td:nth-child(2) {
 
 th:nth-child(3), td:nth-child(3) {  
 	width: 100px;
-}
-
-tfoot {
-  background-color: grey;
-  color: white;
-}
-
-tfoot #btn_row {
-  background-color: black;
 }
 
 div#participants_list {
