@@ -119,7 +119,7 @@ function deleteRow() {
 	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
 	*/
 
-$(document).on('click', 'table tbody tr', function(){
+$(document).on('dblclick', 'table tbody tr', function(){
 
 	if ($(this).hasClass('selected')) {
 		$(this).removeClass('selected');
@@ -138,7 +138,6 @@ $(document).on('click', 'table tbody tr', function(){
 		$("div#participants_list").css('visibility','hidden');
 	}
 });
-
 
 $(document).on('click', '.participants_list_name', function(){
 	$(this).toggleClass('select');

@@ -163,3 +163,9 @@ tfoot {
 .select:hover{
 	background-color: #70e25f;	
 }
+
+input {
+  border-color: inherit;
+  box-shadow: none;
+  background: transparent;
+}
