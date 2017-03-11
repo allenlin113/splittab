@@ -12,6 +12,7 @@ $(document).on('click', '#remove_btn', function(){
 $('#done_btn').click(function(){
 	if(!$('#restaurant_name').val()){
 		alert("You forgot to input Restaurant name!");
+		$('#restaurant_name').focus();
 	}else{
 		$('.bodyBox').css('display','none');
 		$('#addExpenseRecipt').css('display','block');
@@ -40,7 +41,7 @@ $('#done_btn').click(function(){
  	$("#add_expense_btn").click(function(){
  		$("#myTable").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
- 			+
+ 			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
  			'<td></td></tr>'
