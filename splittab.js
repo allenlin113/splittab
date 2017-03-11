@@ -34,25 +34,8 @@ $('#done_btn').click(function(){
 
 /* Page Two Script */
 
-$(document).on('click', '#add_participant', function(){
-	if($("div#participants_list").css("visibility") == 'visible'){
-		$("div#participants_list").css('visibility','hidden');
-	}else{
-		$("div#participants_list").css('visibility','visible');
-	}
-
-});
-
-$("#add_participant").click(function(){		
-});
-
-$(document).on('click', '.participants_list_name', function(){
-	$(this).toggleClass('select');
-});
-
 
 /******** Add Expense functions ********/
-
  	//add expense/cost/participants
  	$("#add_expense_btn").click(function(){
  		$("#myTable").append(
@@ -60,10 +43,7 @@ $(document).on('click', '.participants_list_name', function(){
  			+
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
- 			'<td><span class="glyphicon glyphicon-plus-sign" id="add_participant" style="color:green;" aria-hidden="true" role="button"></span>'
- 			+
- 			'<div id = "participants_list"></div>'
-					//'<button class="delete_btn" type="button" onclick="deleteRow(this); calculateAll();">X</button>'
+ 			'<td><div id = "participants_list"></div>'
 					+ 
 					'<div class = "participants_selected"></div>'
 					+
@@ -71,91 +51,99 @@ $(document).on('click', '.participants_list_name', function(){
 					);
  	});
 
- 	$(document).on('click', '.participants_list_name.select', function(){
- 		
- 	});
  	
-			//Calculates all four rows of tfoot
-			function calculateAll() {
-				calculateSum();
-				calculateTax();
-				calculateTip();
-				calculateGrandTotal();	
-			}
+//Calculates all four rows of tfoot
+function calculateAll() {
+	calculateSum();
+	calculateTax();
+	calculateTip();
+	calculateGrandTotal();	
+}
 
-			//Calculates the sum of tbody
-			function calculateSum() {
-				var sum=0;
+//Calculates the sum of tbody
+function calculateSum() {
+	var sum=0;
 
-				$(".price").each(function() {
-					var value = $(this).val();
-					if (!isNaN(value) && value.length !=0) {
-						sum += parseFloat(value);
-					}
-				})
-				sum = sum.toFixed(2);
+	$(".price").each(function() {
+		var value = $(this).val();
+		if (!isNaN(value) && value.length !=0) {
+			sum += parseFloat(value);
+		}
+	})
+	sum = sum.toFixed(2);
 
-				$('#subtotal').text(sum);
-			}
+	$('#subtotal').text(sum);
+}
 
-			//Takes the tax percent and multiplying it with total sum
-			function calculateTax() {
-				var result = $('#subtotal').text();
-				var tax = $('#taxPercent').val();
+//Takes the tax percent and multiplying it with total sum
+function calculateTax() {
+	var result = $('#subtotal').text();
+	var tax = $('#taxPercent').val();
 
-				var totalTax = result * (tax * 0.01);
-				totalTax = totalTax.toFixed(2);
+	var totalTax = result * (tax * 0.01);
+	totalTax = totalTax.toFixed(2);
 
-				$('#tax').text(totalTax);
-			}
+	$('#tax').text(totalTax);
+}
 
-			//Takes the tip percent and multiplies it with the total sum
-			function calculateTip() {
-				var result = $('#subtotal').text();
-				var tip = $('#tipPercent').val();
+//Takes the tip percent and multiplies it with the total sum
+function calculateTip() {
+	var result = $('#subtotal').text();
+	var tip = $('#tipPercent').val();
 
-				var totalTip = result * (tip * 0.01);
-				totalTip = totalTip.toFixed(2);
+	var totalTip = result * (tip * 0.01);
+	totalTip = totalTip.toFixed(2);
 
-				$('#tip').text(totalTip);
-			}
+	$('#tip').text(totalTip);
+}
 
-			//Adds total sum, tax and tip to get grand total
-			function calculateGrandTotal() {
-				var result = parseFloat($('#subtotal').text());
-				var tax = parseFloat($('#tax').text());
-				var tip = parseFloat($('#tip').text());
+//Adds total sum, tax and tip to get grand total
+function calculateGrandTotal() {
+	var result = parseFloat($('#subtotal').text());
+	var tax = parseFloat($('#tax').text());
+	var tip = parseFloat($('#tip').text());
 
-				var total = result + tax + tip;
-				total = '$' + total.toFixed(2);
+	var total = result + tax + tip;
+	total = '$' + total.toFixed(2);
 
-				$('#grandTotal').text(total);
-			}
+	$('#grandTotal').text(total);
+}
 
-			function deleteRow() {
-				$('.selected').remove();
+function deleteRow() {
+	$('.selected').remove();
 
-				if ($(".selected").length == 0) {
-					$('#remove_expense_btn').prop("disabled", true);
-				}
-				calculateAll();
-			}
-			
-			/*  On doubleclick, selects tr, assigns it class selected and highlights row red
-				If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
-				*/
+	if ($(".selected").length == 0) {
+		$('#remove_expense_btn').prop("disabled", true);
+		$("div#participants_list").css('visibility','hidden');
+	}
+	calculateAll();
+}
 
-				$(document).on('dblclick', 'table tbody tr', function(){
+/*  On doubleclick, selects tr, assigns it class selected and highlights row red
+	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
+	*/
 
-					if ($(this).hasClass('selected')) {
-						$(this).removeClass('selected');
-					}
-					else {
-						$('#remove_expense_btn').prop("disabled", false);
-						$(this).addClass("selected");
-					}	
+$(document).on('dblclick', 'table tbody tr', function(){
 
-					if ($(".selected").length == 0) {
-						$('#remove_expense_btn').prop("disabled", true);
-					}
-				});
+	if ($(this).hasClass('selected')) {
+		$(this).removeClass('selected');
+		$("div#participants_list").css('visibility','hidden');
+	}
+	else {
+		$('#remove_expense_btn').prop("disabled", false);
+		$('.selected').removeClass('selected');
+		$(this).addClass("selected");
+		$("div#participants_list").css('visibility','visible');
+	}	
+
+	if ($(".selected").length == 0) {
+		$('#remove_expense_btn').prop("disabled", true);
+
+		$("div#participants_list").css('visibility','hidden');
+	}
+});
+
+
+$(document).on('click', '.participants_list_name', function(){
+	$(this).toggleClass('select');
+});
