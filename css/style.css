@@ -74,7 +74,10 @@
   opacity: .85;
 }
 
-
+#percentBox {
+  visibility: hidden;
+  display: none;
+}
 /* Table */
 
 table {

@@ -43,10 +43,12 @@
 		
 		<!--Add Expense Table-->
 
-		Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" onchange="calculateAll()"/>
-		<br>
-		Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" onchange="calculateAll()"/>
-		<br><br>
+		<div id="percentBox">
+			Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" onchange="calculateAll()"/>
+			<br>
+			Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" onchange="calculateAll()"/>
+			<br><br>
+		</div>
 
 		<table border = "1" id = "myTable">
 			<thead>
