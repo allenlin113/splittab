@@ -159,3 +159,8 @@ ul{
 .displayList{
   display: block !important;
 }
+
+.list{
+    padding-left: 0px;
+    float: left;
+}

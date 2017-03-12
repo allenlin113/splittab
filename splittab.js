@@ -44,6 +44,7 @@ $('#done_btn').click(function(){
  		select_div.innerHTML = "Select";
  		var select = document.createElement('div');
 		var list = document.createElement('ul');
+		list.className = "list";
 		for(i=0; i<names.length; i++){
 
 			var listItem = document.createElement('li');
@@ -76,7 +77,7 @@ $('#done_btn').click(function(){
 
 $(document).on('click', ".select_btn", function(){
 	
-	$(this).parent().find(':nth-child(2)').children().toggleClass("displayList");
+	$(this).next().children().toggleClass("displayList");
 
 });
  	
