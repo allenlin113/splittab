@@ -39,17 +39,26 @@ $('#done_btn').click(function(){
  	
 
  		/* TESTING */
- 		var select = document.createElement('select');
+ 		var select_div = document.createElement('div');
+ 		select_div.className = "select_btn";
+ 		select_div.innerHTML = "Select";
+ 		var select = document.createElement('div');
+		var list = document.createElement('ul');
 		for(i=0; i<names.length; i++){
-			
-			var option = document.createElement('option');
-			option.value = names[i];
-			option.innerHTML = names[i];
-			select.append(option);
-		}	
 
-			var select_text = select.outerHTML;
-			console.log(select_text);
+			var listItem = document.createElement('li');
+			var input = document.createElement('input');
+			input.type = "checkbox";
+			input.value = names[i];
+			listItem.appendChild(input);
+			listItem.innerHTML += names[i];
+			list.append(listItem);
+		}	
+		list.style.display = "none";
+		select.append(list);
+		$(select).after(select_div);
+
+			var select_text = select_div.outerHTML + select.outerHTML;
 
  		$("tbody").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
@@ -65,6 +74,11 @@ $('#done_btn').click(function(){
 
  	});
 
+$(document).on('click', ".select_btn", function(){
+	
+	$(this).parent().find(':nth-child(2)').children().toggleClass("displayList");
+
+});
  	
 //Calculates all four rows of tfoot
 function calculateAll() {

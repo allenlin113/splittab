@@ -151,3 +151,11 @@ input {
   box-shadow: none;
   background: transparent;
 }
+
+ul{
+  list-style-type: none;
+}
+
+.displayList{
+  display: block !important;
+}
