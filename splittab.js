@@ -35,31 +35,34 @@ $('#done_btn').click(function(){
 
 /******** Add Expense functions ********/
  	//add expense/cost
- 	$("#add_expense_btn").click(function(){
+ 	$(document).on('click', "#add_expense_btn", function(){
+ 	
 
  		/* TESTING */
-
- 		var selectList = document.createElement("select");
- 		selectList.class = "names_list";
-
-		//Create and append the options
-		for (var i = 0; i < names.length; i++) {
-			var option = document.createElement("option");
+ 		var select = document.createElement('select');
+		for(i=0; i<names.length; i++){
+			
+			var option = document.createElement('option');
 			option.value = names[i];
-			option.text = names[i];
-			selectList.appendChild(option);
-	}
-		/*Testing */ 
+			option.innerHTML = names[i];
+			select.append(option);
+		}	
 
- 		$("#myTable").append(
+			var select_text = select.outerHTML;
+			console.log(select_text);
+
+ 		$("tbody").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
  			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
- 			'<td>');
- 		$("#myTable").append(selectList);
- 		$("#myTable").append( 			'</td></tr>'
- 			);
+ 			'<td>' 			
+ 			+
+ 			select_text
+ 			+
+ 			'</td></tr>'
+ 		);
+
  	});
 
  	
