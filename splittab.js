@@ -59,7 +59,7 @@ $('#done_btn').click(function(){
 		select.append(list);
 		$(select).after(select_div);
 
-			var select_text = select_div.outerHTML + select.outerHTML;
+		var select_text = select_div.outerHTML + select.outerHTML;
 
  		$("tbody").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
@@ -80,7 +80,27 @@ $(document).on('click', ".select_btn", function(){
 	$(this).next().children().toggleClass("displayList");
 
 });
- 	
+ 
+
+$(document).on('change', 'input[type=checkbox]', function() {
+	 if (this.checked) {
+		if($(this).parent().parent().parent().prev().text() == "Select"){
+			$(this).parent().parent().parent().prev().text("");
+		}
+		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + ' '+ '</span>';
+		$(this).parent().parent().parent().prev().append(selectedParticipant);	
+	}
+        else{
+        	$('span[title="'+$(this).val()).remove();
+        	if($(this).parent().parent().parent().prev().text()==""){
+        		$(this).parent().parent().parent().prev().text("Select");
+        	}
+
+        }
+    
+
+});
+
 //Calculates all four rows of tfoot
 function calculateAll() {
 	calculateSum();
