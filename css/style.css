@@ -11,11 +11,14 @@
   color: grey;
 }
 
+/* Hides outter-spin button
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+*/
 
 
 /* Page One */
@@ -81,10 +84,13 @@ input[type="number"]::-webkit-inner-spin-button {
   opacity: .85;
 }
 
+/*
 #percentBox {
   visibility: hidden;
   display: none;
 }
+
+*/
 /* Table */
 
 table {
@@ -140,9 +146,11 @@ th:nth-child(3), td:nth-child(3) {
   font-size: 14px;
 }
 
+/*
 tfoot {
   visibility: hidden;
 }
+*/
 
 #btn_row {
   visibility: visible;
