@@ -37,6 +37,12 @@ input[type="number"]::-webkit-inner-spin-button {
   overflow-x: hidden;
 }
 
+#title{
+  margin-top: 30px;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 30px;
+}
+
 #new_person_btn {
   background-color: lightblue;
   border-radius: 5px;

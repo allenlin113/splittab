@@ -7,6 +7,7 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
 </head>
 <style>
 
@@ -16,22 +17,31 @@
 
 <body>
 	<div class = "bodyBox">
-		<h4>----------------------------</h4>
-		<h1 id = "title">SplitTab</h1>
-		<h4>----------------------------</h4>
+			<div id = "logo">
+				<div id = "title">SplitTab</div>
+				<div>made with <span style="color:red;">♥</span> in NY</div>
+				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+			</div>
 
-		<h3>Restaurant Name</h3>
-		<input type="text" placeholder="Junior's Cheesecake" value=" " id ="restaurant_name" autofocus></input>
-		<h4>--------------------------------------------------------</h4>
-		<h3>Please Enter Particpants Name</h3>
+			<div id = "restaurant_name_input">
+				<h4>Restaurant Name</h4>
+				<input type="text" placeholder="Junior's Cheesecake" value=" " id ="restaurant_name" autofocus></input>
+				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+			</div>
+		
+			<div id = "partcipants_name_input">
+				<h4>Particpants Name</h4>
+				<div id="person_list"></div>
+				<button id = "new_person_btn" type="button">+ Add new person</button>
+				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+			</div>
 
-		<div id="person_list"></div>
-
-		<button id = "new_person_btn" type="button">+ Add new person</button>
-		<h4>--------------------------------------------------------</h4>
-		<button id = "done_btn" type="button">Done</button>
-		<h4>Thank You</h4>
+			<div id = "done">
+				<button id = "done_btn" type="button">Done</button>
+				<h4>Thank You</h4>
+			</div>
 	</div>
+
 
 	<div class="bodyBox" id="addExpenseRecipt">
 		<h4>----------------------------</h4>
