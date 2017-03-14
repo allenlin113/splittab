@@ -66,15 +66,12 @@ $('#done_btn').click(function(){
  			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
- 			'<td>' 			
+ 			'<td class="listName">' 			
  			+
  			select_text
  			+
  			'</td></tr>'
  			);
-
- 		$("#individualList").append(select_text);
-
  	});
 
 $(document).on('click', ".select_btn", function(){
@@ -204,6 +201,7 @@ function deleteRow() {
 		$('#individualRecipt').css('display','block');
 
 		var select = document.createElement('select');
+		select.id = "individualList";
 		for(i=0; i<names.length; i++){
 			
 			var option = document.createElement('option');
@@ -213,15 +211,21 @@ function deleteRow() {
 		}
 			var select_text = select.outerHTML;
 
-
 			//Cycle through #myTable tbody and if name matches, add
 
-			//$("#tbody".find("tr").each(function()
 			$("#individualRecipt").prepend(select_text);
-			$("#individualTable tbody").append('<tr><td>Hello</td>'
- 				+	
- 				'<td>Hello</td></tr>'
+
+			//$("#tbody".find("tr").each(function()
+			$("#individualTable tbody").append('<tr></tr>'
 			);
-
-
 	});
+
+$(document).on('change', "#individualList", function(){
+	
+	var selected = $("#individualList :selected").text();
+
+	$("#myTable tbody tr").each(function(i, tr) {
+	    var value = $(this).val();
+	    console.log(value);
+	});
+});
