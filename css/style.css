@@ -95,8 +95,8 @@ input[type="number"]::-webkit-inner-spin-button {
   visibility: hidden;
   display: none;
 }
-
 */
+
 /* Table */
 
 table {
@@ -189,4 +189,15 @@ ul{
     overflow-y: auto;
     max-height: 70px;
     list-style: none;
+}
+
+#expense_done_btn{
+  background-color: lightgreen;
+  border-radius: 5px;
+}
+/* Page Three */ 
+
+
+#individualRecipt{
+  display: none;
 }

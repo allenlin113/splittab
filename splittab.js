@@ -36,32 +36,32 @@ $('#done_btn').click(function(){
 /******** Add Expense functions ********/
  	//add expense/cost
  	$(document).on('click', "#add_expense_btn", function(){
- 	
+
 
  		/* TESTING */
  		var select_div = document.createElement('div');
  		select_div.className = "select_btn";
  		select_div.innerHTML = "Select";
  		var select = document.createElement('div');
-		var list = document.createElement('ul');
-		list.className = "list";
-		for(i=0; i<names.length; i++){
+ 		var list = document.createElement('ul');
+ 		list.className = "list";
+ 		for(i=0; i<names.length; i++){
 
-			var listItem = document.createElement('li');
-			var input = document.createElement('input');
-			input.type = "checkbox";
-			input.value = names[i];
-			listItem.appendChild(input);
-			listItem.innerHTML += names[i];
-			list.append(listItem);
-		}	
-		list.style.display = "none";
-		select.append(list);
-		$(select).after(select_div);
+ 			var listItem = document.createElement('li');
+ 			var input = document.createElement('input');
+ 			input.type = "checkbox";
+ 			input.value = names[i];
+ 			listItem.appendChild(input);
+ 			listItem.innerHTML += names[i];
+ 			list.append(listItem);
+ 		}	
+ 		list.style.display = "none";
+ 		select.append(list);
+ 		$(select).after(select_div);
 
-		var select_text = select_div.outerHTML + select.outerHTML;
+ 		var select_text = select_div.outerHTML + select.outerHTML;
 
- 		$("tbody").append(
+ 		$("#myTable tbody").append(
  			'<tr><td><input type="text" placeholder="Burger"></td>'
  			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
@@ -71,7 +71,9 @@ $('#done_btn').click(function(){
  			select_text
  			+
  			'</td></tr>'
- 		);
+ 			);
+
+ 		$("#individualList").append(select_text);
 
  	});
 
@@ -80,24 +82,24 @@ $(document).on('click', ".select_btn", function(){
 	$(this).next().children().toggleClass("displayList");
 
 });
- 
+
 
 $(document).on('change', 'input[type=checkbox]', function() {
-	 if (this.checked) {
+	if (this.checked) {
 		if($(this).parent().parent().parent().prev().text() == "Select"){
 			$(this).parent().parent().parent().prev().text("");
 		}
 		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + ' '+ '</span>';
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
-        else{
-        	$('span[title="'+$(this).val()).remove();
-        	if($(this).parent().parent().parent().prev().text()==""){
-        		$(this).parent().parent().parent().prev().text("Select");
-        	}
+	else{
+		$('span[title="'+$(this).val()).remove();
+		if($(this).parent().parent().parent().prev().text()==""){
+			$(this).parent().parent().parent().prev().text("Select");
+		}
 
-        }
-    
+	}
+
 
 });
 
@@ -196,3 +198,29 @@ function deleteRow() {
 		}
 	});
 
+	$('#expense_done_btn').click(function(){
+
+		$('.bodyBox').css('display','none');
+		$('#individualRecipt').css('display','block');
+
+		var select = document.createElement('select');
+		for(i=0; i<names.length; i++){
+			
+			var option = document.createElement('option');
+			option.value = names[i];
+			option.innerHTML = names[i];
+			select.append(option);
+		}
+			var select_text = select.outerHTML;
+
+
+			//Cycle through #myTable tbody and if name matches, add
+
+			//$("#tbody".find("tr").each(function()
+
+			$("#individualTable tbody").append('<tr><td>Hello</td>'
+ 				+	
+ 				'<td>Hello</td></tr>'
+			);
+
+	});

@@ -48,10 +48,7 @@
 		<h1 id="restaurant"></h1>
 		<h4>----------------------------</h4>
 
-
-		
-		<!--Add Expense Table-->
-		<table border = "1" id = "myTable">
+		<table border="1" id="myTable">
 			<thead>
 				<tr>
 					<th width="100px" id="expense">Expense</th>
@@ -94,6 +91,52 @@
 			onchange="calculateAll()"/>
 		</div>
 		<br>
+
+		<div id = "expenseDone">
+				<button id = "expense_done_btn" type="button">Done</button>
+		</div>
+
+
+	</div>
+
+
+
+
+
+	<div class="bodyBox" id="individualRecipt">
+
+		<div id="individualList"></div>
+
+		<table border="1" id="individualTable">
+			<thead>
+				<tr>
+					<th width="100px" id="expense">Expense</th>
+					<th>Cost</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td>Subtotal</td>
+					<td><div id="subtotal">0.00</div></td>
+				</tr>
+				<tr>
+					<td>Tax</td>
+					<td><div id="tax">0.00</div></td>
+				</tr>
+				<tr>
+					<td>Tip</td>
+					<td><div id="tip">0.00</div></td>
+				</tr>	
+				<tr>
+					<td>Grand Total</td>
+					<td><div id="grandTotal">$0.00</div></td>
+				</tr>
+			</tfoot>
+
+			<tbody>
+			</tbody>
+		</table>
+
 	</div>
 
 	<script src="splittab.js">
