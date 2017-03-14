@@ -38,19 +38,19 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #title{
-  margin-top: 30px;
+  margin-top: 35px;
   font-family: 'Rubik Mono One', sans-serif;
-  font-size: 30px;
+  font-size: 35px;
 }
 
+
+
 #new_person_btn {
-  background-color: lightblue;
-  border-radius: 5px;
+  background-color: transparent;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 50px;
 }
 
 #done_btn{
@@ -60,12 +60,20 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #remove_btn {
   visibility: hidden;
+  margin-left: 10px;
 }
 
 .person:hover #remove_btn {
   visibility: visible;
 }
 
+input.person_name {
+    display: block;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 /* Page Two */
 
