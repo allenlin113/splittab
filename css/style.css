@@ -162,6 +162,9 @@ ul{
   display: block !important;
 }
 
+.displayNone{
+  display: none;
+}
 .list{
     padding-left: 0px;
     float: left;

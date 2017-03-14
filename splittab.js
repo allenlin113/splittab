@@ -172,11 +172,20 @@ function deleteRow() {
 	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
 	*/
 
-	$(document).on('dblclick', 'table tbody tr', function(){
-
+	$(document).on('click', 'table tbody tr', function(){
+		var currentRow = $(this).index();
+		console.log("current row is " + currentRow);
+		$(this).parent().find("tr").each(function(){
+			if($(this).index()!= currentRow){
+				$(this).find("td").next().next().find("ul").removeClass("displayList");	
+			}
+			
+		});
+		//Already selected
 		if ($(this).hasClass('selected')) {
-			$(this).removeClass('selected');
+			//$(this).removeClass('selected');
 		}
+		//first time being selected
 		else {
 			$('#remove_expense_btn').prop("disabled", false);
 			$('.selected').removeClass('selected');
