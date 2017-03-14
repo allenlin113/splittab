@@ -174,7 +174,6 @@ function deleteRow() {
 
 	$(document).on('click', 'table tbody tr', function(){
 		var currentRow = $(this).index();
-		console.log("current row is " + currentRow);
 		$(this).parent().find("tr").each(function(){
 			if($(this).index()!= currentRow){
 				$(this).find("td").next().next().find("ul").removeClass("displayList");	
