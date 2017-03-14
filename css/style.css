@@ -169,4 +169,7 @@ ul{
     padding-left: 0px;
     float: left;
     text-align: left;
+    overflow-y: auto;
+    max-height: 70px;
+    list-style: none;
 }
