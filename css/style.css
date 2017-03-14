@@ -27,7 +27,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-family: 'Iceland', cursive;
   border: 1px solid black;
   width: 350px;
-  min-height: 500px;
+  min-height: 400px;
   text-align: center;
   overflow: auto;
   display: block;
@@ -54,8 +54,10 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 #done_btn{
-  background-color: lightgreen;
-  border-radius: 5px;
+    background-color: #f4d142;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-bottom: 20px;
 }
 
 #remove_btn {
