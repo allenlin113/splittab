@@ -73,6 +73,24 @@ input.person_name {
     border-bottom: 2px solid black;
     margin-right: auto;
     margin-left: auto;
+    outline-width: 0;
+}
+
+input#restaurant_name{
+    display: block;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-right: auto;
+    margin-left: auto;
+    outline-width: 0;
+}
+
+input.person_name:focus{
+  border-bottom: 2px solid #f4d142;
+}
+
+input#restaurant_name:focus{
+  border-bottom: 2px solid #f4d142;
 }
 
 /* Page Two */
