@@ -143,6 +143,15 @@ th:nth-child(3), td:nth-child(3) {
 	width: 100px;
 }
 
+tfoot:nth-child(1) {
+  font-weight: bold;
+}
+/*
+tfoot {
+  visibility: hidden;
+}
+*/
+
 #grandTotal {
   font-style: bold;
 }
@@ -151,12 +160,6 @@ th:nth-child(3), td:nth-child(3) {
   text-align: center;
   font-size: 14px;
 }
-
-/*
-tfoot {
-  visibility: hidden;
-}
-*/
 
 #btn_row {
   visibility: visible;
