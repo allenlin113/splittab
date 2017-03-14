@@ -217,10 +217,11 @@ function deleteRow() {
 			//Cycle through #myTable tbody and if name matches, add
 
 			//$("#tbody".find("tr").each(function()
-
+			$("#individualRecipt").prepend(select_text);
 			$("#individualTable tbody").append('<tr><td>Hello</td>'
  				+	
  				'<td>Hello</td></tr>'
 			);
+
 
 	});
