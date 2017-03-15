@@ -62,9 +62,9 @@ $('#done_btn').click(function(){
  		var select_text = select_div.outerHTML + select.outerHTML;
 
  		$("#myTable tbody").append(
- 			'<tr><td><input class="expense" type="text" placeholder="Burger"></td>'
+ 			'<tr><td><input class="expense" type="text" placeholder="Burger" value="""></td>'
  			+	
- 			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
+ 			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
  			+
  			'<td class="listName">' 			
  			+
@@ -74,12 +74,15 @@ $('#done_btn').click(function(){
  			);
  	});
 
+$(document).on('change', ".expense, .price", function() {
+	var x = $(this).val();
+	$(this).parent().val(x);
+})
+
+
 $(document).on('click', ".select_btn", function(){
-	
 	$(this).next().children().toggleClass("displayList");
-
 });
-
 
 $(document).on('change', 'input[type=checkbox]', function() {
 	if (this.checked) {
@@ -226,14 +229,8 @@ $(document).on('change', "#individualList", function(){
 			$(this).children().each(function() {
 				var x = $(this).text().trim();
 				if (selected===x) {
-					var expense = $(this).parent().parent().parent().children().eq(0).html();
-					var price = $(this).parent().parent().parent().children().eq(1).html();
-
-					console.log($(this).parent().parent().parent().children().eq(0).val());
-					console.log($(this).parent().parent().parent().children().eq(1).val());
-
-
-
+					var expense = $(this).parent().parent().parent().children().eq(0).val();
+					var price = $(this).parent().parent().parent().children().eq(1).val();
 
 					$("#individualTable tbody").append("<tr><td>"
 						+ expense + "</td><td>"

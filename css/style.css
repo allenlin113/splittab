@@ -144,16 +144,16 @@ table {
 
 }
 
-tbody tr:hover {
+#myTable tbody tr:hover {
   cursor: pointer;
   background-color: lightgrey;
 }
 
-tr.selected {
+#myTable tr.selected {
   background-color: salmon;
 }
 
-tr.selected:hover {
+#myTable tr.selected:hover {
   background-color: salmon;
 }
 
