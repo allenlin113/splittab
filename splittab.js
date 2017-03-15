@@ -211,21 +211,21 @@ function deleteRow() {
 		}
 			var select_text = select.outerHTML;
 
-			//Cycle through #myTable tbody and if name matches, add
-
 			$("#individualRecipt").prepend(select_text);
-
-			//$("#tbody".find("tr").each(function()
-			$("#individualTable tbody").append('<tr></tr>'
-			);
+			//$("#individualTable tbody").append('<tr></tr>');
 	});
 
 $(document).on('change', "#individualList", function(){
 	
 	var selected = $("#individualList :selected").text();
 
-	$("#myTable tbody tr").each(function(i, tr) {
-	    var value = $(this).val();
-	    console.log(value);
+	$("#myTable tbody tr .listName").children().each(function(i, tr) {
+
+		if ($(this).is(':first-child')) {
+			$(this).children().each(function() {
+				console.log($(this).html());
+			})
+		}
+
 	});
 });
