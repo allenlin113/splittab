@@ -62,7 +62,7 @@ $('#done_btn').click(function(){
  		var select_text = select_div.outerHTML + select.outerHTML;
 
  		$("#myTable tbody").append(
- 			'<tr><td><input type="text" placeholder="Burger"></td>'
+ 			'<tr><td><input class="expense" type="text" placeholder="Burger"></td>'
  			+	
  			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()"></td>'
  			+
@@ -217,13 +217,29 @@ function deleteRow() {
 
 $(document).on('change', "#individualList", function(){
 	
-	var selected = $("#individualList :selected").text();
+	var selected = $("#individualList :selected").text().trim();
 
 	$("#myTable tbody tr .listName").children().each(function(i, tr) {
 
 		if ($(this).is(':first-child')) {
+			
 			$(this).children().each(function() {
-				console.log($(this).html());
+				var x = $(this).text().trim();
+				if (selected===x) {
+					var expense = $(this).parent().parent().parent().children().eq(0).html();
+					var price = $(this).parent().parent().parent().children().eq(1).html();
+
+					console.log($(this).parent().parent().parent().children().eq(0).val());
+					console.log($(this).parent().parent().parent().children().eq(1).val());
+
+
+
+
+					$("#individualTable tbody").append("<tr><td>"
+						+ expense + "</td><td>"
+						+ price + "</td></tr>");
+
+					}		
 			})
 		}
 
