@@ -215,11 +215,16 @@ function deleteRow() {
 			var select_text = select.outerHTML;
 
 			$("#individualRecipt").prepend(select_text);
-			//$("#individualTable tbody").append('<tr></tr>');
+			populateIndividualTable();
 	});
 
 $(document).on('change', "#individualList", function(){
+	$("#individualTable tbody").empty();
+	populateIndividualTable();
 	
+});
+
+function populateIndividualTable() {
 	var selected = $("#individualList :selected").text().trim();
 
 	$("#myTable tbody tr .listName").children().each(function(i, tr) {
@@ -235,10 +240,8 @@ $(document).on('change', "#individualList", function(){
 					$("#individualTable tbody").append("<tr><td>"
 						+ expense + "</td><td>"
 						+ price + "</td></tr>");
-
-					}		
+					}	
 			})
 		}
-
 	});
-});
+}
