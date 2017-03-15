@@ -89,7 +89,7 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		if($(this).parent().parent().parent().prev().text() == "Select"){
 			$(this).parent().parent().parent().prev().text("");
 		}
-		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + ' '+ '</span>';
+		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + '</span>';
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
@@ -220,22 +220,26 @@ function deleteRow() {
 
 $(document).on('change', "#individualList", function(){
 	$("#individualTable tbody").empty();
-	populateIndividualTable();
-	
+	populateIndividualTable();	
 });
 
 function populateIndividualTable() {
-	var selected = $("#individualList :selected").text().trim();
-
+	var selected = $("#individualList :selected").text();
 	$("#myTable tbody tr .listName").children().each(function(i, tr) {
-
+		
 		if ($(this).is(':first-child')) {
-			
+
 			$(this).children().each(function() {
-				var x = $(this).text().trim();
+				
+				var x = $(this).text();
 				if (selected===x) {
+
+					var count = $(this).parent().children().length;
+
 					var expense = $(this).parent().parent().parent().children().eq(0).val();
 					var price = $(this).parent().parent().parent().children().eq(1).val();
+					price = price / count;
+					price = price.toFixed(2);
 
 					$("#individualTable tbody").append("<tr><td>"
 						+ expense + "</td><td>"
