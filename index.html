@@ -51,15 +51,15 @@
 		<table border="1" id="myTable">
 			<thead>
 				<tr>
-					<th width="100px" id="expense">Expense</th>
+					<th id="expense">Expense</th>
 					<th>Cost</th>
 					<th class="person">Split</th>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr id="btn_row">
-					<td colspan="3"style="text-align:right;"><button id="add_expense_btn" type="button">Add Expense</button>
-						<button id = "remove_expense_btn" type="button" onclick="deleteRow()" disabled>Remove Expense</button></td>
+					<td colspan="3"style="text-align:right;"><button id="add_expense_btn" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+						<button id = "remove_expense_btn" type="button" onclick="deleteRow()" disabled><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button></td>
 				</tr>
 				<tr>
 					<td>Subtotal</td>

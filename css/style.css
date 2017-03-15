@@ -40,6 +40,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  margin-bottom: 50px;
   overflow-x: hidden;
   background-color: white;
 }
@@ -113,6 +114,12 @@ div#corner {
     border-right: 50px solid lightblue;
     float: right;
 }
+
+div#done {
+    margin-bottom: -20px;
+    margin-top: 30px;
+}
+
 /* Page Two */
 
 #addExpenseRecipt{
@@ -120,16 +127,16 @@ div#corner {
 }
 
 #add_expense_btn {
+  border: none;
   float: left;
-  border-radius: 5px;
-  background-color: lightblue;
   color: black;
+  background-color: transparent;
 }
 
 #remove_expense_btn {
-  border-radius: 5px;
-  background-color: salmon;
+  border: none;
   color: black;
+  background-color: transparent;
 }
 
 #remove_expense_btn:disabled {
@@ -141,6 +148,11 @@ div#corner {
 table {
   width: 349px;
   border: transparent;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 35px;
 
 }
 
@@ -150,11 +162,11 @@ table {
 }
 
 #myTable tr.selected {
-  background-color: salmon;
+  background-color: #f4d142;
 }
 
 #myTable tr.selected:hover {
-  background-color: salmon;
+  background-color: #f4d142;
 }
 
 th, td {
@@ -163,24 +175,25 @@ th, td {
 }
 
 th {
-	color: black;
+  color: black;
+  width: 100px;
 }
 
 th:nth-child(1), td:nth-child(1) {  
-	text-align: left;
-	width: 100px;
+  text-align: left;
+
 }
 
 
 th:nth-child(2), td:nth-child(2) {   
   text-align: center;
-	width: 100px;
+
 }
 
 
 th:nth-child(3), td:nth-child(3) {   
-  text-align: center;
-	width: 100px;
+  text-align: right;
+  
 }
 
 tfoot:nth-child(1) {
@@ -199,10 +212,18 @@ tfoot {
 .price {
   text-align: center;
   font-size: 14px;
+  width: 100px;
 }
 
+.expense{
+  width: 100px;
+}
 #btn_row {
   visibility: visible;
+}
+
+.select_btn{
+  width: 100px;
 }
 
 input {
@@ -229,6 +250,17 @@ ul{
     overflow-y: auto;
     max-height: 70px;
     list-style: none;
+}
+
+input#taxPercent {
+    border: none;
+    border-bottom: 2px solid black;
+    margin-right: 20px;
+}
+
+input#tipPercent{
+  border: none;
+  border-bottom: 2px solid black;
 }
 
 #expense_done_btn{
