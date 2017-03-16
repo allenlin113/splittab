@@ -152,7 +152,7 @@ table {
   margin-left: auto;
   margin-right: auto;
   width: 300px;
-  margin-top: 35px;
+  margin-top: 20px;
 
 }
 
@@ -256,16 +256,28 @@ input#taxPercent {
     border: none;
     border-bottom: 2px solid black;
     margin-right: 20px;
+    outline-width: 0;
+}
+
+input#taxPercent:focus {
+    border-bottom: 2px solid #f4d142;
 }
 
 input#tipPercent{
   border: none;
   border-bottom: 2px solid black;
+  outline-width: 0;
+}
+
+input#tipPercent:focus{
+   border-bottom: 2px solid #f4d142;
 }
 
 #expense_done_btn{
-  background-color: lightgreen;
+  background-color: #f4d142;
   border-radius: 5px;
+  border: 2px solid black;
+  margin-top: 20px;
 }
 /* Page Three */ 
 
