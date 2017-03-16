@@ -285,3 +285,25 @@ input#tipPercent:focus{
 #individualRecipt{
   display: none;
 }
+
+div#ind_subtotal {
+    text-align: right;
+}
+
+div#ind_tax {
+    text-align: right;
+}
+
+div#ind_tip {
+    text-align: right;
+}
+
+div#ind_grandTotal {
+    text-align: right;
+}
+
+select#individualList {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+

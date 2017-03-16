@@ -2,12 +2,12 @@
 <html>
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "css/style.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
 </head>
 <style>
 
@@ -16,137 +16,137 @@
 </style>
 
 <body>
-	<div class = "bodyBox">
-			<div id = "logo">
-				<div class = "title">SplitTab</div>
-				<div>made with <span style="color:red;">♥</span> in NY</div>
-				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
-			</div>
+  <div class = "bodyBox">
+      <div id = "logo">
+        <div class = "title">SplitTab</div>
+        <div>made with <span style="color:red;">♥</span> in NY</div>
+        <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+      </div>
 
-			<div id = "restaurant_name_input">
-				<h4>Restaurant Name</h4>
-				<input type="text" placeholder="Junior's Cheesecake" id ="restaurant_name" autofocus></input>
-				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
-			</div>
-		
-			<div id = "partcipants_name_input">
-				<h4>Particpants Name</h4>
-				<div id="person_list"></div>
-				<button id = "new_person_btn" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
-				<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
-			</div>
+      <div id = "restaurant_name_input">
+        <h4>Restaurant Name</h4>
+        <input type="text" placeholder="Junior's Cheesecake" id ="restaurant_name" autofocus></input>
+        <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+      </div>
+    
+      <div id = "partcipants_name_input">
+        <h4>Particpants Name</h4>
+        <div id="person_list"></div>
+        <button id = "new_person_btn" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+        <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+      </div>
 
-			<div id = "done">
-				<button id = "done_btn" type="button">NEXT</button>
-			</div>
-			<div id = "corner"></div>
-	</div>
-
-
-	<div class="bodyBox" id="addExpenseRecipt">
-		
-		<h1 id="restaurant"></h1>
-		<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
-		<table border="1" id="myTable">
-			<thead>
-				<tr>
-					<th id="expense">Expense</th>
-					<th>Cost</th>
-					<th class="person">Split</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr id="btn_row">
-					<td colspan="3"style="text-align:right;"><button id="add_expense_btn" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
-						<button id = "remove_expense_btn" type="button" onclick="deleteRow()" disabled><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button></td>
-				</tr>
-				<tr>
-					<td>Subtotal</td>
-					<td><div id="subtotal">0.00</div></td>
-				</tr>
-				<tr>
-					<td>Tax</td>
-					<td><div id="tax">0.00</div></td>
-				</tr>
-				<tr>
-					<td>Tip</td>
-					<td><div id="tip">0.00</div></td>
-				</tr>	
-				<tr>
-					<td>Grand Total</td>
-					<td><div id="grandTotal">$0.00</div></td>
-				</tr>
-			</tfoot>
-
-			<tbody>
-			</tbody>
-		</table>
-
-		<br>
-		<div id="percentBox">
-			Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" 
-			onchange="calculateAll()"/>
-			Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" 
-			onchange="calculateAll()"/>
-		</div>
-		<br>
-		<h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
-		<div id = "expenseDone">
-				<button id = "expense_done_btn" type="button">NEXT</button>
-		</div>
-
-		<div id = "corner"></div>
-	</div>
+      <div id = "done">
+        <button id = "done_btn" type="button">NEXT</button>
+      </div>
+      <div id = "corner"></div>
+  </div>
 
 
+  <div class="bodyBox" id="addExpenseRecipt">
+    
+    <h1 id="restaurant"></h1>
+    <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+    <table border="1" id="myTable">
+      <thead>
+        <tr>
+          <th id="expense">Expense</th>
+          <th>Cost</th>
+          <th class="person">Split</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr id="btn_row">
+          <td colspan="3"style="text-align:right;"><button id="add_expense_btn" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+            <button id = "remove_expense_btn" type="button" onclick="deleteRow()" disabled><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button></td>
+        </tr>
+        <tr>
+          <td>Subtotal</td>
+          <td><div id="subtotal">0.00</div></td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td><div id="tax">0.00</div></td>
+        </tr>
+        <tr>
+          <td>Tip</td>
+          <td><div id="tip">0.00</div></td>
+        </tr> 
+        <tr>
+          <td>Grand Total</td>
+          <td><div id="grandTotal">$0.00</div></td>
+        </tr>
+      </tfoot>
+
+      <tbody>
+      </tbody>
+    </table>
+
+    <br>
+    <div id="percentBox">
+      Tax %: <input type="number" step="0.125" id="taxPercent" value="8.875" max="25" min="0" style="width: 54px;" 
+      onchange="calculateAll()"/>
+      Tip %: &nbsp;<input  type="number" step="1" id="tipPercent" value="15" max="100" min="0" style="width: 53px;" 
+      onchange="calculateAll()"/>
+    </div>
+    <br>
+    <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+    <div id = "expenseDone">
+        <button id = "expense_done_btn" type="button">NEXT</button>
+    </div>
+
+    <div id = "corner"></div>
+  </div>
 
 
 
-	<div class="bodyBox" id="individualRecipt">
-
-		<table border="1" id="individualTable">
-			<thead>
-				<tr>
-					<th width="100px" id="expense">Expense</th>
-					<th>Cost</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td>Subtotal</td>
-					<td><div id="ind_subtotal">0.00</div></td>
-				</tr>
-				<tr>
-					<td>Tax @ <span id="ind_tax_percent"></span>%</td>
-					<td><div id="ind_tax">0.00</div></td>
-				</tr>
-				<tr>
-					<td>Tip @ <span id="ind_tip_percent"></span>%</td>
-					<td><div id="ind_tip">0.00</div></td>
-				</tr>	
-				<tr>
-					<td>Grand Total</td>
-					<td><div id="ind_grandTotal">$0.00</div></td>
-				</tr>
-			</tfoot>
-
-			<tbody>
-			</tbody>
-		</table>
-
-	</div>
 
 
+  <div class="bodyBox" id="individualRecipt">
+    <h4>- - - - - - - - - - - - - - - - - - - - - - - - - - - -</h4>
+    <table border="1" id="individualTable">
+      <thead>
+        <tr>
+          <th style = "width:150px; text-align: left;" id="expense">Expense</th>
+          <th style = "width:150px; text-align: right;">Cost</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Subtotal</td>
+          <td><div id="ind_subtotal">0.00</div></td>
+        </tr>
+        <tr>
+          <td>Tax @ <span id="ind_tax_percent"></span>%</td>
+          <td><div id="ind_tax">0.00</div></td>
+        </tr>
+        <tr>
+          <td>Tip @ <span id="ind_tip_percent"></span>%</td>
+          <td><div id="ind_tip">0.00</div></td>
+        </tr> 
+        <tr>
+          <td>Grand Total</td>
+          <td><div id="ind_grandTotal">$0.00</div></td>
+        </tr>
+      </tfoot>
 
-	<script src="splittab.js">
+      <tbody>
+      </tbody>
+    </table>
+
+  </div>
 
 
-	/* Testing JavaScript */
 
-	</script>
-	<script>
+  <script src="splittab.js">
 
-	</script>
+
+  /* Testing JavaScript */
+
+  </script>
+  <script>
+
+  </script>
 
 
 </body>
