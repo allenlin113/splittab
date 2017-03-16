@@ -3,6 +3,7 @@
 $('#new_person_btn').click(function(){
 	$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name" maxLength="10"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br><div>');
 	$("#person_list :last-child input").focus();
+
 });
 
 $(document).on('click', '#remove_btn', function(){
