@@ -35,6 +35,11 @@ $('#done_btn').click(function(){
 
 /* Page Two Script */
 
+$(window).click(function() {
+	$('table tbody tr').removeClass("selected");
+	$('ul.list.displayList').removeClass('displayList');
+});
+
 //Add Expense Function
 $(document).on('click', "#add_expense_btn", function(){
 
@@ -173,7 +178,8 @@ function deleteRow() {
 /*  On doubleclick, selects tr, assigns it class selected and highlights row red
 	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled*/
 
-$(document).on('click', 'table tbody tr', function(){
+$(document).on('click', 'table tbody tr', function(event){
+	event.stopPropagation();
 	var currentRow = $(this).index();
 	$(this).parent().find("tr").each(function(){
 		if($(this).index()!= currentRow){
