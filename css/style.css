@@ -72,6 +72,7 @@ body{
 #remove_btn {
   visibility: hidden;
   margin-left: 10px;
+  float: left;
 }
 
 .person:hover #remove_btn {
@@ -82,9 +83,9 @@ input.person_name {
     display: block;
     border: none;
     border-bottom: 2px solid black;
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 34%;
     outline-width: 0;
+    float: left;
 }
 
 input#restaurant_name{
