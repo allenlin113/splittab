@@ -34,12 +34,10 @@ $('#done_btn').click(function(){
 	else if(!$('#restaurant_name').val()){
 		$('body').append(warningMessage("missing restaurant name!"));
 		$('#wrapper').addClass('setOpacity');
-		$('#restaurant_name').focus();
 	}
 	else if (!$("#person_list .person_name").val()){
 		$('body').append(warningMessage("missing participants name!"));
-		$('#wrapper').addClass('setOpacity');
-		
+		$('#wrapper').addClass('setOpacity');	
 	}
 	else{
 		$('.bodyBox').css('display','none');
@@ -54,6 +52,18 @@ $('#done_btn').click(function(){
 		}
 	})
 
+//Warning Message Handle
+$(document).on('click', ".ok_btn", function(){
+	$('#wrapper').removeClass('setOpacity');
+	$(this).parent().remove();
+
+	if ($(this).parent().text()==="missing participants name!OK") {
+		$("#person_list .person_name").focus();
+	}
+	else {
+		$('#restaurant_name').focus();
+	}
+});
 
 /* Page Two Script */
 
@@ -339,9 +349,3 @@ function ind_calculateGrandTotal() {
 
 	$('#ind_grandTotal').text(total);
 }
-
-//Warning Message Handle
-$(document).on('click', ".ok_btn", function(){
-	$('#wrapper').removeClass('setOpacity');
-	$(this).parent().remove();
-});
