@@ -11,14 +11,11 @@
   color: grey;
 }
 
-/* Hides outter-spin button
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-*/
 
 
 /* Page One */
@@ -184,23 +181,37 @@ th {
 
 th:nth-child(1), td:nth-child(1) {  
   text-align: left;
+  width: 100px;
 
 }
 
 
-th:nth-child(2), td:nth-child(2) {   
+th:nth-child(2), td:nth-child(2) {  
+
   text-align: center;
+  width: 100px;
 
 }
 
 
 th:nth-child(3), td:nth-child(3) {   
   text-align: right;
+  width: 100px;
   
 }
 
 tfoot:nth-child(1) {
   font-weight: bold;
+}
+
+input.expense {
+    width: 100px;
+    border: none;
+}
+
+input.price{
+  width: 100px;
+    border: none;
 }
 /*
 tfoot {
@@ -218,7 +229,12 @@ tfoot {
   width: 100px;
 }
 
-.expense{
+#cost{
+  width: 100px;
+  text-align: center;
+}
+
+#expense{
   width: 100px;
 }
 #btn_row {
