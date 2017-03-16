@@ -16,14 +16,18 @@ $('#done_btn').click(function(){
 	if(!$('#restaurant_name').val()){
 		alert("You forgot to input Restaurant name!");
 		$('#restaurant_name').focus();
-	}else{
+	}
+	if ($("#person_list .person_name").length==0){
+		alert("You forgot to add participants!");
+	}
+	else{
 		$('.bodyBox').css('display','none');
 		$('#addExpenseRecipt').css('display','block');
 		$('#restaurant').html( $('#restaurant_name').val());
 
 			//Alphabetize list
 			$("#person_list .person_name").each(	function() {
-				names.push($(this).val());
+				names.push($(this).val().trim());
 			})			
 			names.sort();
 		}
