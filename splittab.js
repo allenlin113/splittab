@@ -89,7 +89,7 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		if($(this).parent().parent().parent().prev().text() == "Select"){
 			$(this).parent().parent().parent().prev().text("");
 		}
-		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + '</span>';
+		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + ' ' + '</span>';
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
@@ -216,7 +216,12 @@ function deleteRow() {
 
 			$("#individualRecipt").prepend(select_text);
 			populateIndividualTable();
+			$("#ind_tax_percent").text($('#taxPercent').val());
+			$("#ind_tip_percent").text($('#tipPercent').val());
 	});
+
+
+/* PAGE THREE */
 
 $(document).on('change', "#individualList", function(){
 	$("#individualTable tbody").empty();
@@ -224,14 +229,14 @@ $(document).on('change', "#individualList", function(){
 });
 
 function populateIndividualTable() {
-	var selected = $("#individualList :selected").text();
+	var selected = $("#individualList :selected").text().trim();
 	$("#myTable tbody tr .listName").children().each(function(i, tr) {
 		
 		if ($(this).is(':first-child')) {
 
 			$(this).children().each(function() {
 				
-				var x = $(this).text();
+				var x = $(this).text().trim();
 				if (selected===x) {
 
 					var count = $(this).parent().children().length;
@@ -241,11 +246,70 @@ function populateIndividualTable() {
 					price = price / count;
 					price = price.toFixed(2);
 
-					$("#individualTable tbody").append("<tr><td>"
-						+ expense + "</td><td>"
-						+ price + "</td></tr>");
+					$("#individualTable tbody").append('<tr><td>'
+						+ expense + '</td><td class="ind_price">'
+						+ price + '</td></tr>');
 					}	
 			})
 		}
 	});
+
+	ind_calculateAll();
+}
+
+//Calculates all four rows of tfoot
+function ind_calculateAll() {
+	ind_calculateSum();
+	ind_calculateTax();
+	ind_calculateTip();
+	ind_calculateGrandTotal();
+}
+
+//Calculates the sum of tbody
+function ind_calculateSum() {
+	var sum=0;
+
+	$(".ind_price").each(function() {
+		var value = $(this).html();
+		if (!isNaN(value) && value.length !=0) {
+			sum += parseFloat(value);
+		}
+	})
+	sum = sum.toFixed(2);
+
+	$('#ind_subtotal').text(sum);
+}
+
+//Takes the tax percent and multiplying it with total sum
+function ind_calculateTax() {
+	var result = $('#ind_subtotal').text();
+	var tax = $('#taxPercent').val();
+
+	var totalTax = result * (tax * 0.01);
+	totalTax = totalTax.toFixed(2);
+
+	$('#ind_tax').text(totalTax);
+}
+
+//Takes the tip percent and multiplies it with the total sum
+function ind_calculateTip() {
+	var result = $('#ind_subtotal').text();
+	var tip = $('#tipPercent').val();
+
+	var totalTip = result * (tip * 0.01);
+	totalTip = totalTip.toFixed(2);
+
+	$('#ind_tip').text(totalTip);
+}
+
+//Adds total sum, tax and tip to get grand total
+function ind_calculateGrandTotal() {
+	var result = parseFloat($('#ind_subtotal').text());
+	var tax = parseFloat($('#ind_tax').text());
+	var tip = parseFloat($('#ind_tip').text());
+
+	var total = result + tax + tip;
+	total = '$' + total.toFixed(2);
+
+	$('#ind_grandTotal').text(total);
 }
