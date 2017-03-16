@@ -26,7 +26,7 @@ $('#done_btn').click(function(){
 
 			//Alphabetize list
 			$("#person_list .person_name").each(	function() {
-				names.push($(this).val();
+				names.push($(this).val());
 			})			
 			names.sort();
 		}
