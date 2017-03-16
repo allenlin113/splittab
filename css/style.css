@@ -384,6 +384,11 @@ div#copyright {
     margin-top: 15px;
 }
 
+img#github_img:hover{
+  border-radius: 25px;
+  background-color:  #f4d142;
+}
+
 /*Warning Message*/
 
 div.warning {
