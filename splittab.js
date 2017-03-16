@@ -1,7 +1,7 @@
 /* Page One Script */
 
 $('#new_person_btn').click(function(){
-	$("#person_list").append('<div class="person"><br><input class="person_name" placeholder="Name" maxLength="10"></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br><div>');
+	$("#person_list").append('<div class="person"><input class="person_name" placeholder="Name" maxLength="10" value=""></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br></div>');
 	$("#person_list :last-child input").focus();
 
 });
@@ -27,6 +27,7 @@ function warningMessage(str) {
 var names = [];
 
 $('#done_btn').click(function(){
+
 	if((!$('#restaurant_name').val()) && (!$("#person_list .person_name").val())){
 		$('body').append(warningMessage("missing restaurant & participants name!"));
 		$('#wrapper').addClass('setOpacity');
@@ -45,7 +46,7 @@ $('#done_btn').click(function(){
 		$('#restaurant').html( $('#restaurant_name').val());
 
 			//Alphabetize list
-			$("#person_list .person_name").each(	function() {
+			$("#person_list .person_name").each(function() {
 				names.push($(this).val());
 			})			
 			names.sort();
@@ -58,12 +59,13 @@ $(document).on('click', ".ok_btn", function(){
 	$(this).parent().remove();
 
 	if ($(this).parent().text()==="missing participants name!OK") {
-		$("#person_list .person_name").focus();
+		//Focus on missing element
 	}
 	else {
 		$('#restaurant_name').focus();
 	}
 });
+
 
 /* Page Two Script */
 
@@ -100,7 +102,7 @@ $(document).on('click', "#add_expense_btn", function(){
 	var select_text = select_div.outerHTML + select.outerHTML;
 
 	$("#myTable tbody").append(
-		'<tr><td><input class="expense" type="text" placeholder="Burger" value="""></td>'
+		'<tr><td><input class="expense" type="text" placeholder="Burger" value=""></td>'
 		+	
 		'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
 		+
@@ -131,9 +133,7 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
-		console.log($(this).parent().parent().parent().parent().html());
 		$($(this).parent().parent().parent().parent().find('span[title="'+$(this).val()+'"]')).remove();
-		console.log('<span title="'+$(this).val()+'">'+ $(this).val() + ' ' + '</span>');
         if($(this).parent().parent().parent().prev().text()==""){
             $(this).parent().parent().parent().prev().text("Select");
         }
