@@ -53,11 +53,11 @@ $(document).on('click', "#add_expense_btn", function(){
 		input.value = names[i];
 		listItem.appendChild(input);
 		listItem.innerHTML += names[i];
-		list.append(listItem);
+		list.appendChild(listItem);
 	}	
 
 	list.style.display = "none";
-	select.append(list);
+	select.appendChild(list);
 	$(select).after(select_div);
 
 	var select_text = select_div.outerHTML + select.outerHTML;
@@ -94,10 +94,10 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
-		$('span[title="'+$(this).val()).remove();
-		if($(this).parent().parent().parent().prev().text()==""){
-			$(this).parent().parent().parent().prev().text("Select");
-		}
+		$('span[title="'+$(this).val()+']').remove();
+        if($(this).parent().parent().parent().prev().text()==""){
+            $(this).parent().parent().parent().prev().text("Select");
+        }
 	}
 });
 
@@ -205,7 +205,7 @@ $('#expense_done_btn').click(function(){
 		var option = document.createElement('option');
 		option.value = names[i];
 		option.innerHTML = names[i];
-		select.append(option);
+		select.appendChild(option);
 	}
 	var select_text = select.outerHTML;
 
