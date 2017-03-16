@@ -257,6 +257,7 @@ input#taxPercent {
     border-bottom: 2px solid black;
     margin-right: 20px;
     outline-width: 0;
+    text-align: center;
 }
 
 input#taxPercent:focus {
@@ -267,6 +268,7 @@ input#tipPercent{
   border: none;
   border-bottom: 2px solid black;
   outline-width: 0;
+  text-align: center;
 }
 
 input#tipPercent:focus{
@@ -305,9 +307,27 @@ div#ind_grandTotal {
 select#individualList {
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 36px;
+    border: none;
+    background-color: transparent;
+    background: url("../image/arrow.png") no-repeat;
+    background-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;  
+    min-width: 60%;
+    max-width: 300px;
+    background-position: 100%;
+  
+}
+
+select#individualList select{
+
 }
 
 td.ind_price {
     text-align: right;
 }
 
+div#individualRecipt {
+    min-height: 270px;
+}
