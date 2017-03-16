@@ -9,7 +9,6 @@ $(document).on('click', '#remove_btn', function(){
 	$(this).parent().remove();
 });
 
-
 var names = [];
 
 $('#done_btn').click(function(){
@@ -27,7 +26,7 @@ $('#done_btn').click(function(){
 
 			//Alphabetize list
 			$("#person_list .person_name").each(	function() {
-				names.push($(this).val().trim());
+				names.push($(this).val();
 			})			
 			names.sort();
 		}
@@ -36,53 +35,51 @@ $('#done_btn').click(function(){
 
 /* Page Two Script */
 
+//Add Expense Function
+$(document).on('click', "#add_expense_btn", function(){
 
-/******** Add Expense functions ********/
- 	//add expense/cost
- 	$(document).on('click', "#add_expense_btn", function(){
+	var select_div = document.createElement('div');
+	select_div.className = "select_btn";
+	select_div.innerHTML = "Select";
+	var select = document.createElement('div');
+	var list = document.createElement('ul');
+	list.className = "list";
 
+	for(i=0; i<names.length; i++){
 
- 		/* TESTING */
- 		var select_div = document.createElement('div');
- 		select_div.className = "select_btn";
- 		select_div.innerHTML = "Select";
- 		var select = document.createElement('div');
- 		var list = document.createElement('ul');
- 		list.className = "list";
- 		for(i=0; i<names.length; i++){
+		var listItem = document.createElement('li');
+		var input = document.createElement('input');
+		input.type = "checkbox";
+		input.value = names[i];
+		listItem.appendChild(input);
+		listItem.innerHTML += names[i];
+		list.append(listItem);
+	}	
 
- 			var listItem = document.createElement('li');
- 			var input = document.createElement('input');
- 			input.type = "checkbox";
- 			input.value = names[i];
- 			listItem.appendChild(input);
- 			listItem.innerHTML += names[i];
- 			list.append(listItem);
- 		}	
- 		list.style.display = "none";
- 		select.append(list);
- 		$(select).after(select_div);
+	list.style.display = "none";
+	select.append(list);
+	$(select).after(select_div);
 
- 		var select_text = select_div.outerHTML + select.outerHTML;
+	var select_text = select_div.outerHTML + select.outerHTML;
 
- 		$("#myTable tbody").append(
- 			'<tr><td><input class="expense" type="text" placeholder="Burger" value="""></td>'
- 			+	
- 			'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
- 			+
- 			'<td class="listName">' 			
- 			+
- 			select_text
- 			+
- 			'</td></tr>'
- 			);
- 	});
+	$("#myTable tbody").append(
+		'<tr><td><input class="expense" type="text" placeholder="Burger" value="""></td>'
+		+	
+		'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
+		+
+		'<td class="listName">' 			
+		+
+		select_text
+		+
+		'</td></tr>'
+		);
+});
 
+//Updates input value. Necessary for Page Three
 $(document).on('change', ".expense, .price", function() {
 	var x = $(this).val();
 	$(this).parent().val(x);
 })
-
 
 $(document).on('click', ".select_btn", function(){
 	$(this).next().children().toggleClass("displayList");
@@ -101,11 +98,10 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		if($(this).parent().parent().parent().prev().text()==""){
 			$(this).parent().parent().parent().prev().text("Select");
 		}
-
 	}
-
-
 });
+
+/* Tfoot Calculations */ 
 
 //Calculates all four rows of tfoot
 function calculateAll() {
@@ -126,7 +122,6 @@ function calculateSum() {
 		}
 	})
 	sum = sum.toFixed(2);
-
 	$('#subtotal').text(sum);
 }
 
@@ -169,63 +164,59 @@ function deleteRow() {
 
 	if ($(".selected").length == 0) {
 		$('#remove_expense_btn').prop("disabled", true);
-
 	}
 	calculateAll();
 }
 
 /*  On doubleclick, selects tr, assigns it class selected and highlights row red
-	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled
-	*/
+	If table row is selected, #remove_expense_btn is disabled. Otherwise, disabled*/
 
-	$(document).on('click', 'table tbody tr', function(){
-		var currentRow = $(this).index();
-		$(this).parent().find("tr").each(function(){
-			if($(this).index()!= currentRow){
-				$(this).find("td").next().next().find("ul").removeClass("displayList");	
-			}
-			
-		});
-		//Already selected
-		if ($(this).hasClass('selected')) {
-			//$(this).removeClass('selected');
-		}
-		//first time being selected
-		else {
-			$('#remove_expense_btn').prop("disabled", false);
-			$('.selected').removeClass('selected');
-			$(this).addClass("selected");
-		}	
-
-		if ($(".selected").length == 0) {
-			$('#remove_expense_btn').prop("disabled", true);
+$(document).on('click', 'table tbody tr', function(){
+	var currentRow = $(this).index();
+	$(this).parent().find("tr").each(function(){
+		if($(this).index()!= currentRow){
+			$(this).find("td").next().next().find("ul").removeClass("displayList");	
 		}
 	});
+	//Already selected
+	if ($(this).hasClass('selected')) {
+	}
+	//first time being selected
+	else {
+		$('#remove_expense_btn').prop("disabled", false);
+		$('.selected').removeClass('selected');
+		$(this).addClass("selected");
+	}	
 
-	$('#expense_done_btn').click(function(){
+	if ($(".selected").length == 0) {
+		$('#remove_expense_btn').prop("disabled", true);
+	}
+});
 
-		$('.bodyBox').css('display','none');
-		$('#individualRecipt').css('display','block');
+$('#expense_done_btn').click(function(){
 
-		var select = document.createElement('select');
-		select.id = "individualList";
-		for(i=0; i<names.length; i++){
-			
-			var option = document.createElement('option');
-			option.value = names[i];
-			option.innerHTML = names[i];
-			select.append(option);
-		}
-			var select_text = select.outerHTML;
+	$('.bodyBox').css('display','none');
+	$('#individualRecipt').css('display','block');
 
-			$("#individualRecipt").prepend(select_text);
-			populateIndividualTable();
-			$("#ind_tax_percent").text($('#taxPercent').val());
-			$("#ind_tip_percent").text($('#tipPercent').val());
-	});
+	var select = document.createElement('select');
+	select.id = "individualList";
+	for(i=0; i<names.length; i++){
+		
+		var option = document.createElement('option');
+		option.value = names[i];
+		option.innerHTML = names[i];
+		select.append(option);
+	}
+	var select_text = select.outerHTML;
+
+	$("#individualRecipt").prepend(select_text);
+	populateIndividualTable();
+	$("#ind_tax_percent").text($('#taxPercent').val());
+	$("#ind_tip_percent").text($('#tipPercent').val());
+});
 
 
-/* PAGE THREE */
+/* Page Three Script */
 
 $(document).on('change', "#individualList", function(){
 	$("#individualTable tbody").empty();
@@ -235,11 +226,11 @@ $(document).on('change', "#individualList", function(){
 function populateIndividualTable() {
 	var selected = $("#individualList :selected").text().trim();
 	$("#myTable tbody tr .listName").children().each(function(i, tr) {
-		
+
 		if ($(this).is(':first-child')) {
 
 			$(this).children().each(function() {
-				
+
 				var x = $(this).text().trim();
 				if (selected===x) {
 
@@ -253,7 +244,7 @@ function populateIndividualTable() {
 					$("#individualTable tbody").append('<tr><td>'
 						+ expense + '</td><td class="ind_price">'
 						+ price + '</td></tr>');
-					}	
+				}	
 			})
 		}
 	});
@@ -261,6 +252,7 @@ function populateIndividualTable() {
 	ind_calculateAll();
 }
 
+/* Third Page Tfoot Calculation */ 
 //Calculates all four rows of tfoot
 function ind_calculateAll() {
 	ind_calculateSum();
