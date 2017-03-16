@@ -24,7 +24,7 @@ function warningMessage(str) {
 	
 	return warning;
 }
-
+var names = [];
 
 $('#done_btn').click(function(){
 	if((!$('#restaurant_name').val()) && (!$("#person_list .person_name").val())){
