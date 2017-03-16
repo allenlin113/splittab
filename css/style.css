@@ -332,6 +332,8 @@ div#individualRecipt {
     min-height: 270px;
 }
 
+/*Footer*/
+
 div#footer {
     position: fixed;
     bottom: 0;
@@ -380,4 +382,37 @@ div#names {
 
 div#copyright {
     margin-top: 15px;
+}
+
+/*Warning Message*/
+
+div.warning {
+    background-color: white;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    border: 2px solid black;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 200px;
+    text-align: center;
+    opacity: 1 !important;
+}
+
+.setOpacity{
+  opacity: 0.3;
+}
+
+.message{
+  margin-top: 25px;
+}
+
+button.ok_btn {
+    margin-top: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #f4d142;
 }

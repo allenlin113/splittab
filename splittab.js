@@ -10,11 +10,25 @@ $(document).on('click', '#remove_btn', function(){
 	$(this).parent().remove();
 });
 
-var names = [];
+function warningMessage(str) {
+	var warning = document.createElement("div");
+	warning.className = "warning";
+	var message = document.createElement("div");
+	var message = '<div class = "message">'+str+'</str>';
+	message.className = "message";
+	warning.innerHTML = message;
+	warning.innerHTML += '<button type = "button" class = "ok_btn">OK</button>';
+	console.log(warning);
+	return warning;
+}
+
+
+
 
 $('#done_btn').click(function(){
 	if(!$('#restaurant_name').val()){
-		alert("You forgot to input Restaurant name!");
+		$('body').append(warningMessage("missing restaurant name!"));
+		$('#wrapper').addClass('setOpacity');
 		$('#restaurant_name').focus();
 	}
 	if ($("#person_list .person_name").length==0){
@@ -318,3 +332,9 @@ function ind_calculateGrandTotal() {
 
 	$('#ind_grandTotal').text(total);
 }
+
+//Warning Message Handle
+$(document).on('click', ".ok_btn", function(){
+	$('#wrapper').removeClass('setOpacity');
+	$(this).parent().remove();
+});
