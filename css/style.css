@@ -384,6 +384,8 @@ div#names {
 }
 
 div#copyright {
+    position: fixed;
+    right: 35px;
     margin-top: 15px;
 }
 
