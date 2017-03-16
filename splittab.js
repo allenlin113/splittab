@@ -90,11 +90,12 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		if($(this).parent().parent().parent().prev().text() == "Select"){
 			$(this).parent().parent().parent().prev().text("");
 		}
-		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val() + ' ' + '</span>';
+		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val()+ '</span>';
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
-		$('span[title="'+$(this).val()+'"]').remove();
+		console.log($(this).parent().parent().parent().parent().html());
+		$($(this).parent().parent().parent().parent().find('span[title="'+$(this).val()+'"]')).remove();
 		console.log('<span title="'+$(this).val()+'">'+ $(this).val() + ' ' + '</span>');
         if($(this).parent().parent().parent().prev().text()==""){
             $(this).parent().parent().parent().prev().text("Select");
