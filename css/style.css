@@ -86,6 +86,7 @@ input.person_name {
     margin-left: 34%;
     outline-width: 0;
     float: left;
+    width: 106px;
 }
 
 input#restaurant_name{
@@ -95,6 +96,7 @@ input#restaurant_name{
     margin-right: auto;
     margin-left: auto;
     outline-width: 0;
+    width: 106px;
 }
 
 input.person_name:focus{
