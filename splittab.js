@@ -94,7 +94,8 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
-		$('span[title="'+$(this).val()+']').remove();
+		$('span[title="'+$(this).val()+'"]').remove();
+		console.log('<span title="'+$(this).val()+'">'+ $(this).val() + ' ' + '</span>');
         if($(this).parent().parent().parent().prev().text()==""){
             $(this).parent().parent().parent().prev().text("Select");
         }
