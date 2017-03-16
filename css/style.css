@@ -387,8 +387,9 @@ div#copyright {
 /*Warning Message*/
 
 div.warning {
+    font-family: 'Iceland', cursive;
     background-color: white;
-    width: 200px;
+    width: 250px;
     height: 100px;
     position: absolute;
     border: 2px solid black;
@@ -400,6 +401,7 @@ div.warning {
     top: 200px;
     text-align: center;
     opacity: 1 !important;
+    border-style: dashed;
 }
 
 .setOpacity{

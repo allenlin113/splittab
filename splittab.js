@@ -10,29 +10,36 @@ $(document).on('click', '#remove_btn', function(){
 	$(this).parent().remove();
 });
 
+//warning message generator
 function warningMessage(str) {
+
 	var warning = document.createElement("div");
 	warning.className = "warning";
 	var message = document.createElement("div");
 	var message = '<div class = "message">'+str+'</str>';
+	
 	message.className = "message";
 	warning.innerHTML = message;
 	warning.innerHTML += '<button type = "button" class = "ok_btn">OK</button>';
-	console.log(warning);
+	
 	return warning;
 }
 
 
-
-
 $('#done_btn').click(function(){
-	if(!$('#restaurant_name').val()){
+	if((!$('#restaurant_name').val()) && (!$("#person_list .person_name").val())){
+		$('body').append(warningMessage("missing restaurant & participants name!"));
+		$('#wrapper').addClass('setOpacity');
+	}
+	else if(!$('#restaurant_name').val()){
 		$('body').append(warningMessage("missing restaurant name!"));
 		$('#wrapper').addClass('setOpacity');
 		$('#restaurant_name').focus();
 	}
-	if ($("#person_list .person_name").length==0){
-		alert("You forgot to add participants!");
+	else if (!$("#person_list .person_name").val()){
+		$('body').append(warningMessage("missing participants name!"));
+		$('#wrapper').addClass('setOpacity');
+		
 	}
 	else{
 		$('.bodyBox').css('display','none');
