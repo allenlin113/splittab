@@ -307,3 +307,7 @@ select#individualList {
     margin-bottom: 10px;
 }
 
+td.ind_price {
+    text-align: right;
+}
+
