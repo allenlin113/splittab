@@ -335,11 +335,6 @@ select#individualList {
     min-width: 60%;
     max-width: 300px;
     background-position: 100%;
-  
-}
-
-select#individualList select{
-
 }
 
 td.ind_price {
@@ -443,4 +438,11 @@ button.ok_btn {
     border: 2px solid black;
     border-radius: 5px;
     background-color: #f4d142;
+}
+
+#back_btn {
+    background-color: #f4d142;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-bottom: 20px;
 }

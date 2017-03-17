@@ -27,8 +27,8 @@ function warningMessage(str) {
 
 //Warning Message Handle
 $(document).on('click', ".ok_btn", function(){
-	$('#wrapper').removeClass('setOpacity');
 	$(this).parent().remove();
+	$('#wrapper').removeClass('setOpacity');
 
 	if ($(this).parent().text()==="missing participants name!OK") {
 		//Focus on missing element
@@ -259,6 +259,7 @@ $('#expense_done_btn').click(function(){
 $(document).on('click', '#back_btn', function(){
 	//$('.bodyBox').css('display','block');
 	$("#individualList").remove();
+	$("#individualTable tbody").empty();
 	$('#addExpenseRecipt').css('display','block');
 	$('#individualRecipt').css('display','none');
 });
