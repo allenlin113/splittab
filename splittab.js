@@ -256,6 +256,13 @@ $('#expense_done_btn').click(function(){
 	$("#ind_tip_percent").text($('#tipPercent').val());
 });
 
+$(document).on('click', '#back_btn', function(){
+	//$('.bodyBox').css('display','block');
+	$("#individualList").remove();
+	$('#addExpenseRecipt').css('display','block');
+	$('#individualRecipt').css('display','none');
+});
+
 
 /* Page Three Script */
 
