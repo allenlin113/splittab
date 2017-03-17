@@ -11,6 +11,14 @@
   color: grey;
 }
 
+
+
+
+
+
+}
+
+
 input[type="number"].price::-webkit-outer-spin-button,
 input[type="number"].price::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -446,3 +454,16 @@ button.ok_btn {
     border: 2px solid black;
     margin-bottom: 20px;
 }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+.bodyBox {
+    width: 80%;
+}
+
+.header {
+    font-size: 75px;
+}
+
