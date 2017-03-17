@@ -130,7 +130,7 @@ $(document).on('change', 'input[type=checkbox]', function() {
 		if($(this).parent().parent().parent().prev().text() == "Select"){
 			$(this).parent().parent().parent().prev().text("");
 		}
-		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val()+ '</span>';
+		var selectedParticipant = '<span title="'+ $(this).val() + '">' + $(this).val()+ " " + '</span>';
 		$(this).parent().parent().parent().prev().append(selectedParticipant);	
 	}
 	else{
