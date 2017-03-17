@@ -43,7 +43,7 @@ body{
 }
 
 
-.title{
+.header{
   margin-top: 35px;
   font-family: 'Rubik Mono One', sans-serif;
   font-size: 35px;
@@ -432,6 +432,7 @@ div.warning {
 
 .setOpacity{
   opacity: 0.3;
+  pointer-events: none;
 }
 
 .message{
