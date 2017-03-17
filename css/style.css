@@ -456,14 +456,3 @@ button.ok_btn {
 }
 
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-/* Styles */
-.bodyBox {
-    width: 80%;
-}
-
-.header {
-    font-size: 75px;
-}
-
