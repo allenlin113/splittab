@@ -1,7 +1,7 @@
 /* Page One Script */
 
 $('#new_person_btn').click(function(){
-	$("#person_list").append('<div class="person"><input class="person_name" placeholder="Name" maxLength="10" value=""></input><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br></div>');
+	$("#person_list").append('<div class="person"><input type="text" class="person_name" placeholder="Name" maxLength="10" value=""><span id="remove_btn" class="glyphicon glyphicon-remove-sign" style="color:red;" aria-hidden="true" role="button"></span><br><br></div>');
 	$("#person_list :last-child input").focus();
 
 });
@@ -24,8 +24,21 @@ function warningMessage(str) {
 	
 	return warning;
 }
-var names = [];
 
+//Warning Message Handle
+$(document).on('click', ".ok_btn", function(){
+	$('#wrapper').removeClass('setOpacity');
+	$(this).parent().remove();
+
+	if ($(this).parent().text()==="missing participants name!OK") {
+		//Focus on missing element
+	}
+	else {
+		$('#restaurant_name').focus();
+	}
+});
+
+var names = [];
 $('#done_btn').click(function(){
 
 	if((!$('#restaurant_name').val()) && (!$("#person_list .person_name").val())){
@@ -53,18 +66,6 @@ $('#done_btn').click(function(){
 		}
 	})
 
-//Warning Message Handle
-$(document).on('click', ".ok_btn", function(){
-	$('#wrapper').removeClass('setOpacity');
-	$(this).parent().remove();
-
-	if ($(this).parent().text()==="missing participants name!OK") {
-		//Focus on missing element
-	}
-	else {
-		$('#restaurant_name').focus();
-	}
-});
 
 
 /* Page Two Script */
@@ -102,7 +103,7 @@ $(document).on('click', "#add_expense_btn", function(){
 	var select_text = select_div.outerHTML + select.outerHTML;
 
 	$("#myTable tbody").append(
-		'<tr><td><input class="expense" type="text" placeholder="Burger" value=""></td>'
+		'<tr><td><input type="text" class="expense" placeholder="Burger" value=""></td>'
 		+	
 		'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
 		+
