@@ -115,7 +115,7 @@ $(document).on('click', "#add_expense_btn", function(){
 	$("#myTable tbody").append(
 		'<tr><td><input type="text" class="expense" placeholder="Burger" value=""></td>'
 		+	
-		'<td><input type="number" class="price" placeholder="1.99" min="0" step="any" onchange="calculateAll()" value=""></td>'
+		'<td><input type="number" class="price" placeholder="1.99" min="0" step="0.01" onchange="calculateAll()" value=""></td>'
 		+
 		'<td class="listName">' 			
 		+
