@@ -89,6 +89,10 @@ $(window).click(function() {
 	}
 });
 
+$(document).on('focusout', 'input', function()){
+	$('#footer').removeClass('hideFooter');
+});
+
 //Add Expense Function
 $(document).on('click', "#add_expense_btn", function(){
 
