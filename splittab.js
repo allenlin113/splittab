@@ -78,7 +78,10 @@ $(window).click(function() {
 	$('table tbody tr').removeClass("selected");
 	$('ul.list.displayList').removeClass('displayList');
 	if(!$('input').is(":focus")){
-		$("#footer").removeClass('hideFooter');
+		setTimeout(function(){
+			$("#footer").removeClass('hideFooter');	
+		}, 2000);
+		
 	}
 });
 
