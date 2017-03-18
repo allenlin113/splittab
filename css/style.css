@@ -287,6 +287,7 @@ input#taxPercent {
     margin-right: 20px;
     outline-width: 0;
     text-align: center;
+    border-radius: none;
 }
 
 input#taxPercent:focus {
@@ -461,10 +462,11 @@ button.ok_btn {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
-.bodyBox {
-  width: 85%;
-  margin-top: 15px;
+  .bodyBox {
+    width: 85%;
+    margin-top: 15px;
   }
+
   #names{
     text-align: center;
     width: 100%;
