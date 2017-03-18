@@ -258,7 +258,8 @@ input {
   box-shadow: none;
   background: transparent;
   -webkit-appearance: none;
-  -webkit-border-radius:0px
+  -webkit-border-radius:0px;
+  font-size: 16px;
 
 }
 
