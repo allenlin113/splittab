@@ -153,6 +153,21 @@ $(document).on('change', 'input[type=checkbox]', function() {
 
 /* Tfoot Calculations */ 
 
+$(document).on('change', '#tax, #tip', function(){
+	var tax = $('#tax').val();
+	var tip = $('#tip').val();
+	var subtotal = $('#subtotal').text();
+
+	var taxPercent = tax / subtotal * 100;
+	taxPercent = taxPercent.toFixed(3);
+	var tipPercent = tip / subtotal * 100;
+	tipPercent = tipPercent.toFixed(2);
+
+	$("#taxPercent").val(taxPercent);
+	$("#tipPercent").val(tipPercent);
+
+});
+
 //Calculates all four rows of tfoot
 function calculateAll() {
 	calculateSum();
@@ -183,7 +198,7 @@ function calculateTax() {
 	var totalTax = result * (tax * 0.01);
 	totalTax = totalTax.toFixed(2);
 
-	$('#tax').text(totalTax);
+	$('#tax').val(totalTax);
 }
 
 //Takes the tip percent and multiplies it with the total sum
@@ -194,14 +209,14 @@ function calculateTip() {
 	var totalTip = result * (tip * 0.01);
 	totalTip = totalTip.toFixed(2);
 
-	$('#tip').text(totalTip);
+	$('#tip').val(totalTip);
 }
 
 //Adds total sum, tax and tip to get grand total
 function calculateGrandTotal() {
 	var result = parseFloat($('#subtotal').text());
-	var tax = parseFloat($('#tax').text());
-	var tip = parseFloat($('#tip').text());
+	var tax = parseFloat($('#tax').val());
+	var tip = parseFloat($('#tip').val());
 
 	var total = result + tax + tip;
 	total = '$' + total.toFixed(2);
