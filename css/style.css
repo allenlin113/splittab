@@ -456,6 +456,7 @@ button.ok_btn {
 /* Styles */
 .bodyBox {
   width: 85%;
+  margin-top: 25px;
   }
   #names{
     text-align: center;
