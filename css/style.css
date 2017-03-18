@@ -90,7 +90,6 @@ input.person_name {
     outline-width: 0;
     float: left;
     width: 106px;
-    -webkit-appearance: none;
 }
 
 input#restaurant_name{
@@ -103,7 +102,6 @@ input#restaurant_name{
     margin-left: auto;
     outline-width: 0;
     width: 106px;
-    -webkit-appearance: none;
 }
 
 input.person_name:focus{
@@ -259,6 +257,9 @@ input {
   border-color: inherit;
   box-shadow: none;
   background: transparent;
+  -webkit-appearance: none;
+  -webkit-border-radius:0px
+
 }
 
 ul{
@@ -290,7 +291,6 @@ input#taxPercent {
     outline-width: 0;
     text-align: center;
     border-radius: none;
-    -webkit-appearance: none;
 }
 
 input#taxPercent:focus {
@@ -302,7 +302,6 @@ input#tipPercent{
   border-bottom: 2px solid black;
   outline-width: 0;
   text-align: center;
-  -webkit-appearance: none;
 }
 
 input#tipPercent:focus{
