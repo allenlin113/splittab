@@ -38,6 +38,10 @@ input[type=checkbox]:checked {
     -webkit-appearance: checkbox !important;
 }
 
+input[type=checkbox] {
+    -webkit-appearance: checkbox !important;
+}
+
 /* Page One */
 
 body{
