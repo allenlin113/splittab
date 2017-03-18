@@ -16,9 +16,6 @@
 
 
 
-}
-
-
 input[type="number"].price::-webkit-outer-spin-button,
 input[type="number"].price::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -453,6 +450,28 @@ button.ok_btn {
     border-radius: 5px;
     border: 2px solid black;
     margin-bottom: 20px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+.bodyBox {
+  width: 85%;
+  }
+  #names{
+    text-align: center;
+  }
+  span#allen {
+    font-size: 10px;
+  }
+
+  span#dasom {
+    font-size: 10px;
+  }
+
+  img#github_img{
+    width: 30px !important;
+   }
+
 }
 
 
