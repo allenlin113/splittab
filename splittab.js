@@ -42,8 +42,8 @@ $(document).on('click', ".ok_btn", function(){
 
 var names = [];
 $('#done_btn').click(function(){
-
-	if((!$('#restaurant_name').val()) && (!$("#person_list .person_name").val())){
+	var emptyList = checkPerson();
+	if((!$('#restaurant_name').val()) && (emptyList)){
 		$('body').append(warningMessage("missing restaurant & participants name!"));
 		$('#wrapper').addClass('setOpacity');
 	}
@@ -51,7 +51,7 @@ $('#done_btn').click(function(){
 		$('body').append(warningMessage("missing restaurant name!"));
 		$('#wrapper').addClass('setOpacity');
 	}
-	else if (!$("#person_list .person_name").val()){
+	else if (emptyList){
 		$('body').append(warningMessage("missing participants name!"));
 		$('#wrapper').addClass('setOpacity');	
 	}
@@ -66,9 +66,23 @@ $('#done_btn').click(function(){
 			})			
 			names.sort();
 		}
+	});
+
+//Checks if #person_list is empty or if there is an empty variable
+function checkPerson() {
+	var count = 0;
+	var isEmpty = false;
+	$("#person_list .person_name").each(function() {
+		count++;
+		if ($(this).val().length===0) {
+			isEmpty = true;
+		}
 	})
-
-
+	if (count===0) {
+		isEmpty = true;
+	}
+	return isEmpty;
+}
 
 
 /* Page Two Script */
