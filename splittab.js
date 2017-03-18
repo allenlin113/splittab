@@ -25,8 +25,7 @@ function warningMessage(str) {
 	return warning;
 }
 
-//turn off auto complete
-$('input').attr('autocomplete','off');
+
 
 //Warning Message Handle
 $(document).on('click', ".ok_btn", function(){
@@ -74,6 +73,8 @@ $('#done_btn').click(function(){
 /* Page Two Script */
 
 $(document).on('focus','input', function(){
+	//turn off auto complete
+	$('input').attr('autocomplete','off');
 	$("#footer").addClass("hideFooter");
 });
 
