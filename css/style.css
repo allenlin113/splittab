@@ -411,7 +411,7 @@ div#names {
 }
 
 div#copyright {
-    position: fixed;
+    position: absolute;
     right: 35px;
     margin-top: 15px;
 }
