@@ -70,9 +70,16 @@ $('#done_btn').click(function(){
 
 /* Page Two Script */
 
+$(document).on('focus','input', function(){
+	$("#footer").addClass("hideFooter");
+});
+
 $(window).click(function() {
 	$('table tbody tr').removeClass("selected");
 	$('ul.list.displayList').removeClass('displayList');
+	if(!$('input').is(":focus")){
+		$("#footer").removeClass('hideFooter');
+	}
 });
 
 //Add Expense Function

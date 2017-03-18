@@ -481,6 +481,9 @@ button.ok_btn {
     margin-right: 0px !important;
    }
 
+   .hideFooter{
+      visibility: hidden;
+   }
   
 }
 
