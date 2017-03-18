@@ -90,7 +90,11 @@ $(window).click(function() {
 });
 
 $(document).on('focusout', 'input', function()){
-	$('#footer').removeClass('hideFooter');
+	if(!$('input').is(":focus")){
+		setTimeout(function(){
+			$("#footer").removeClass('hideFooter');	
+		}, 500);
+	}
 });
 
 //Add Expense Function
