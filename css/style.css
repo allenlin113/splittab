@@ -22,6 +22,18 @@ input[type="number"].price::-webkit-inner-spin-button {
     margin: 0;
 }
 
+input[type="number"]#tax::-webkit-outer-spin-button,
+input[type="number"]#tax::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]#tip::-webkit-outer-spin-button,
+input[type="number"]#tip::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* Page One */
 
 body{
@@ -221,6 +233,14 @@ input.price{
   width: 100px;
     border: none;
 }
+input#tax{
+  width: 100px;
+  border: none;
+}
+input#tip{
+  width: 100px;
+  border: none;
+}
 /*
 tfoot {
   visibility: hidden;
@@ -231,7 +251,7 @@ tfoot {
   font-style: bold;
 }
 
-.price {
+.price, #tax, #tip {
   text-align: center;
   font-size: 14px;
   width: 100px;
