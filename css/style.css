@@ -492,6 +492,12 @@ button.ok_btn {
     margin-bottom: 20px;
 }
 
+@media only screen and (min-width: 600px) {
+  .hideFooter{
+    visibility: hidden;
+  }
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
   .bodyBox {
