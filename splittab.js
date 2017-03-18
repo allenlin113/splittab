@@ -89,13 +89,7 @@ $(window).click(function() {
 	}
 });
 
-$(document).on('focusout', 'input', function()){
-	if(!$('input').is(":focus")){
-		setTimeout(function(){
-			$("#footer").removeClass('hideFooter');	
-		}, 500);
-	}
-});
+
 
 //Add Expense Function
 $(document).on('click', "#add_expense_btn", function(){
