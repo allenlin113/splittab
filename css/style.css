@@ -82,7 +82,9 @@ body{
 
 input.person_name {
     display: block;
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid black;
     margin-left: 34%;
     outline-width: 0;
@@ -92,7 +94,9 @@ input.person_name {
 
 input#restaurant_name{
     display: block;
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid black;
     margin-right: auto;
     margin-left: auto;
@@ -276,7 +280,9 @@ ul{
 }
 
 input#taxPercent {
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid black;
     margin-right: 20px;
     outline-width: 0;
