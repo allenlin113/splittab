@@ -80,7 +80,7 @@ $(window).click(function() {
 	if(!$('input').is(":focus")){
 		setTimeout(function(){
 			$("#footer").removeClass('hideFooter');	
-		}, 2000);
+		}, 500);
 		
 	}
 });
