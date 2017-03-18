@@ -25,6 +25,9 @@ function warningMessage(str) {
 	return warning;
 }
 
+//turn off auto complete
+$('input').attr('autocomplete','off');
+
 //Warning Message Handle
 $(document).on('click', ".ok_btn", function(){
 	$(this).parent().remove();
