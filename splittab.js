@@ -68,15 +68,6 @@ $('#done_btn').click(function(){
 		}
 	})
 
-function checkPerson() {
-	var x = true;
-	$("#person_list .person_name").each(function() {
-				if (!($(this).val())) {
-					return false;
-					return $(this)
-
-			}			
-	})
 
 
 
