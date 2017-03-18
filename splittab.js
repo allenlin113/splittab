@@ -33,7 +33,8 @@ $(document).on('click', ".ok_btn", function(){
 	$('#wrapper').removeClass('setOpacity');
 
 	if ($(this).parent().text()==="missing participants name!OK") {
-		//Focus on missing element
+		//Focus on missing participant name
+		focusPerson();
 	}
 	else {
 		$('#restaurant_name').focus();
@@ -82,6 +83,16 @@ function checkPerson() {
 		isEmpty = true;
 	}
 	return isEmpty;
+}
+
+//Finds the first input with missing participants and focus
+function focusPerson(){
+	$("#person_list .person_name").each(function() {
+		if ($(this).val().length===0) {
+			$(this).focus();
+			return false;
+		}
+	})
 }
 
 

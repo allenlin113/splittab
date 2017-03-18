@@ -1,14 +1,14 @@
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: grey;
+  color: lightgrey;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: grey;
+  color: lightgrey;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: grey;
+  color: lightgrey;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: grey;
+  color: lightgrey;
 }
 
 
