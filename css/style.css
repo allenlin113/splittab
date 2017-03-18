@@ -335,6 +335,7 @@ select#individualList {
     min-width: 60%;
     max-width: 300px;
     background-position: 100%;
+    text-align-last:center;
 }
 
 td.ind_price {

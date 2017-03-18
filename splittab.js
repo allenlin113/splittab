@@ -256,15 +256,6 @@ $('#expense_done_btn').click(function(){
 	$("#ind_tip_percent").text($('#tipPercent').val());
 });
 
-$(document).on('click', '#back_btn', function(){
-	//$('.bodyBox').css('display','block');
-	$("#individualList").remove();
-	$("#individualTable tbody").empty();
-	$('#addExpenseRecipt').css('display','block');
-	$('#individualRecipt').css('display','none');
-});
-
-
 /* Page Three Script */
 
 $(document).on('change', "#individualList", function(){
@@ -358,3 +349,11 @@ function ind_calculateGrandTotal() {
 
 	$('#ind_grandTotal').text(total);
 }
+
+$(document).on('click', '#back_btn', function(){
+	//$('.bodyBox').css('display','block');
+	$("#individualList").remove();
+	$("#individualTable tbody").empty();
+	$('#addExpenseRecipt').css('display','block');
+	$('#individualRecipt').css('display','none');
+});
